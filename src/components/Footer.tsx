@@ -16,8 +16,12 @@ export default function Footer() {
           {/* Col 1: Company Profile */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg theme-btn-primary flex items-center justify-center text-white shadow-sm">
-                <Shield className="w-6 h-6" />
+              <div className="w-11 h-11 rounded-xl overflow-hidden shadow-md border border-slate-700 bg-slate-900 flex items-center justify-center p-0.5 shrink-0">
+                <img 
+                  src="/images/nextgen-logo-3d.jpg" 
+                  alt="NextGen IT Solution Logo" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
               <span className="text-xl font-bold text-white tracking-tight">
                 {theme.companyName ? theme.companyName.split(' ')[0] : 'NextGen'}{' '}

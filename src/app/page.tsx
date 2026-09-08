@@ -31,65 +31,183 @@ export default function HomePage() {
     <div className="space-y-24 pb-16">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-gradient-to-b from-slate-100 via-blue-50/40 to-slate-50 border-b border-slate-200">
-        {/* Subtle grid pattern */}
+      <section className="relative pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-gradient-to-b from-slate-100 via-blue-50/50 to-slate-50 border-b border-slate-200">
+        {/* Ambient background glows & grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a08_1px,transparent_1px),linear-gradient(to_bottom,#0f172a08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+        <div className="absolute top-12 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-bold tracking-wide uppercase shadow-sm">
-              <ShieldCheck className="w-4 h-4 text-teal-600" />
-              <span>South Gujarat & Union Territory Industrial IT Specialists</span>
+            {/* Left Column: Heading & Value Proposition (7 cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-teal-50 via-blue-50 to-indigo-50 border border-teal-200/80 text-teal-800 text-xs font-bold tracking-wide uppercase shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                <ShieldCheck className="w-4 h-4 text-teal-600" />
+                <span>South Gujarat & Union Territory Industrial IT Specialists</span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.35rem] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                Complete <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-teal-700">IT Infrastructure & Security</span> Solutions for Enterprises
+              </h1>
+
+              {/* Service tags pill bar */}
+              <div className="flex flex-wrap gap-2 text-xs font-semibold text-slate-700">
+                {['Industrial LAN Cabling', 'AI CCTV Surveillance', 'Servers & Storage', 'NextGen Firewalls', 'Wireless APs', '24/7 AMC Support'].map((tag) => (
+                  <span key={tag} className="px-3 py-1 rounded-lg bg-white/90 border border-slate-200 shadow-2xs text-slate-700 font-medium">
+                    ✓ {tag}
+                  </span>
+                ))}
+              </div>
+
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+                NextGen IT Solution powers manufacturing plants, corporate offices, and institutions across <strong>Vapi, Silvassa, and Daman</strong> with mission-critical cabling, enterprise surveillance, robust servers, and SLA-backed 24/7 AMC support.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                <Link 
+                  href="/quote"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-blue-600/25 transition transform hover:-translate-y-0.5 text-sm uppercase tracking-wider"
+                >
+                  <span>Get a Free Quote</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a 
+                  href="tel:+919978598817"
+                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 border border-slate-300/80 text-slate-800 font-bold px-6 py-3.5 rounded-xl shadow-sm transition text-sm hover:border-slate-400"
+                >
+                  <PhoneCall className="w-4 h-4 text-teal-600" />
+                  <span>Call IT Specialist</span>
+                </a>
+                <a 
+                  href="https://wa.me/919978598817?text=Hello%20NextGen%20IT%20Solution,%20I%20would%20like%20to%20inquire%20about%20your%20IT%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300/80 text-emerald-800 font-bold px-5 py-3.5 rounded-xl shadow-xs transition text-sm"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+
+              {/* Quick credibility stats */}
+              <div className="pt-6 border-t border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
+                <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
+                  <div className="text-2xl font-extrabold text-slate-900">500+</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Industrial Projects</div>
+                </div>
+                <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
+                  <div className="text-2xl font-extrabold text-teal-700">2-4 Hrs</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Local Onsite SLA</div>
+                </div>
+                <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
+                  <div className="text-2xl font-extrabold text-blue-700">100%</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Industrial Grade</div>
+                </div>
+                <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
+                  <div className="text-2xl font-extrabold text-teal-700">10+ Years</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Regional Authority</div>
+                </div>
+              </div>
+
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-              Complete <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-teal-700">IT Infrastructure & Security</span> Solutions for Businesses
-            </h1>
+            {/* Right Column: High-Impact 3D Brand Emblem Pedestal (5 cols) */}
+            <div className="lg:col-span-5 flex justify-center relative">
+              
+              {/* Outer decorative ambient glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-teal-400/20 to-indigo-600/20 rounded-3xl blur-2xl transform scale-95 pointer-events-none" />
 
-            <p className="text-base sm:text-lg text-slate-700 font-semibold">
-              Networking • CCTV • Servers • Hardware • Firewall • Wi-Fi • IT Support • AMC
-            </p>
+              {/* Futuristic Showcase Card */}
+              <div className="w-full max-w-md bg-gradient-to-b from-[#0f172a] via-[#111c35] to-[#0a0f1d] border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative text-white overflow-hidden group">
+                
+                {/* Cyber Grid background within card */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#38bdf810_1px,transparent_1px),linear-gradient(to_bottom,#38bdf810_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] pointer-events-none" />
+                <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-500/25 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-teal-500/25 rounded-full blur-2xl pointer-events-none" />
 
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
-              NextGen IT Solution powers manufacturing plants, corporate offices, and institutions across <strong>Vapi, Silvassa, and Daman</strong> with mission-critical cabling, enterprise surveillance, robust servers, and SLA-backed 24/7 AMC support.
-            </p>
+                {/* Top Badge Row */}
+                <div className="relative z-10 flex items-center justify-between pb-4 border-b border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="text-[11px] font-mono font-bold text-teal-300 tracking-wider uppercase">
+                      NextGen Industrial Core
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 border border-blue-700/50">
+                    B2B Certified
+                  </span>
+                </div>
 
-            {/* CTA Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row gap-4">
-              <Link 
-                href="/quote"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-7 py-3.5 rounded-xl shadow-md shadow-blue-600/20 transition transform hover:-translate-y-0.5 text-sm uppercase tracking-wider"
-              >
-                <span>Get a Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a 
-                href="tel:+919978598817"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-blue-50 border border-slate-200 text-blue-700 font-bold px-7 py-3.5 rounded-xl shadow-sm transition text-sm"
-              >
-                <PhoneCall className="w-4 h-4 text-teal-700" />
-                <span>Talk to an IT Expert</span>
-              </a>
-            </div>
+                {/* Center 3D Logo Showcase */}
+                <div className="relative z-10 my-6 flex flex-col items-center justify-center">
+                  
+                  {/* Glowing Holographic Halo */}
+                  <div className="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/30 via-teal-400/25 to-transparent blur-xl animate-pulse-glow" />
+                    
+                    {/* Metallic Logo Frame */}
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-cyan-400/40 group-hover:border-cyan-400/80 group-hover:scale-105 transition-all duration-500 bg-slate-950 p-2 flex items-center justify-center">
+                      <img 
+                        src="/images/nextgen-logo-3d.jpg" 
+                        alt="NextGen IT Solution 3D Emblem" 
+                        className="w-full h-full object-cover rounded-xl transform group-hover:rotate-1 transition-transform duration-500"
+                      />
+                      
+                      {/* Interactive Glass Reflection Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
+                    </div>
+                  </div>
 
-            {/* Quick credibility stats */}
-            <div className="pt-8 border-t border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
-              <div>
-                <div className="text-2xl font-extrabold text-slate-900">500+</div>
-                <div className="text-xs text-slate-500 font-medium">Industrial Projects</div>
-              </div>
-              <div>
-                <div className="text-2xl font-extrabold text-teal-700">2-4 Hrs</div>
-                <div className="text-xs text-slate-500 font-medium">Local Onsite SLA</div>
-              </div>
-              <div>
-                <div className="text-2xl font-extrabold text-slate-900">100%</div>
-                <div className="text-xs text-slate-500 font-medium">Industrial Grade</div>
-              </div>
-              <div>
-                <div className="text-2xl font-extrabold text-teal-700">10+ Years</div>
-                <div className="text-xs text-slate-500 font-medium">Regional Expertise</div>
+                  {/* Brand Title below Logo */}
+                  <div className="text-center mt-5 space-y-1">
+                    <div className="text-lg font-extrabold text-white tracking-tight flex items-center justify-center gap-1.5">
+                      <span>NEXTGEN IT SOLUTION</span>
+                      <ShieldCheck className="w-4 h-4 text-teal-400" />
+                    </div>
+                    <div className="text-xs text-slate-400 font-mono">
+                      Industrial Network & Surveillance Integrator
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Highlights Badges */}
+                <div className="relative z-10 grid grid-cols-2 gap-2.5 pt-4 border-t border-slate-800/80 text-xs">
+                  <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-md bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                      ⚡
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-[11px]">2-4h SLA</div>
+                      <div className="text-[10px] text-slate-400">Vapi & Silvassa</div>
+                    </div>
+                  </div>
+
+                  <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-md bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                      🛡️
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-[11px]">100% OEM</div>
+                      <div className="text-[10px] text-slate-400">Warranty Backed</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Action Button at Base of Card */}
+                <div className="relative z-10 mt-4">
+                  <Link
+                    href="/quote"
+                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600/90 to-teal-600/90 hover:from-blue-600 hover:to-teal-600 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-md transition"
+                  >
+                    <span>Request Turnkey Project Proposal</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+
               </div>
             </div>
 
