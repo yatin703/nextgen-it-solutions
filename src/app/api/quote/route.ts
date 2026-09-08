@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createLead } from '@/lib/store';
+import { sendLeadNotificationEmail } from '@/lib/email';
 import fs from 'fs';
 import path from 'path';
 
@@ -14,6 +15,7 @@ export async function POST(req: NextRequest) {
     let service = 'General IT Inquiry';
     let requirement = '';
     let attachmentUrl = '';
+    let fileAttachment: { filename: string; content: Buffer } | undefined;
 
     if (contentType.includes('multipart/form-data') || contentType.includes('application/x-www-form-urlencoded')) {
       const formData = await req.formData();
@@ -27,17 +29,25 @@ export async function POST(req: NextRequest) {
       const file = formData.get('file') as File | null;
 
       if (file && file.size > 0) {
-        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-        if (!fs.existsSync(uploadDir)) {
-          fs.mkdirSync(uploadDir, { recursive: true });
-        }
+        try {
+          const buffer = Buffer.from(await file.arrayBuffer());
+          fileAttachment = {
+            filename: file.name,
+            content: buffer
+          };
 
-        const safeFileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
-        const filePath = path.join(uploadDir, safeFileName);
-        
-        const buffer = Buffer.from(await file.arrayBuffer());
-        fs.writeFileSync(filePath, buffer);
-        attachmentUrl = `/uploads/${safeFileName}`;
+          const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+          if (!fs.existsSync(uploadDir)) {
+            fs.mkdirSync(uploadDir, { recursive: true });
+          }
+
+          const safeFileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+          const filePath = path.join(uploadDir, safeFileName);
+          fs.writeFileSync(filePath, buffer);
+          attachmentUrl = `/uploads/${safeFileName}`;
+        } catch (fileErr) {
+          console.warn('Serverless filesystem notice: Local file saving skipped or read-only:', fileErr);
+        }
       }
     } else {
       const body = await req.json();
@@ -67,6 +77,19 @@ export async function POST(req: NextRequest) {
       status: 'New',
       notes: 'Submitted via website quote form'
     });
+
+    // Fire email notification asynchronously
+    sendLeadNotificationEmail({
+      name,
+      company,
+      phone,
+      email,
+      location,
+      service,
+      requirement,
+      type: 'Quote',
+      fileAttachment
+    }).catch(err => console.error('Quote email error:', err));
 
     return NextResponse.json({ success: true, lead: newLead });
   } catch (error: any) {

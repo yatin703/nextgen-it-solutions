@@ -1,5 +1,6 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { createLead } from '@/lib/store';
+import { sendLeadNotificationEmail } from '@/lib/email';
 
 export async function POST(req: NextRequest) {
   try {
@@ -20,6 +21,17 @@ export async function POST(req: NextRequest) {
       requirement: message || 'General contact inquiry from website',
       status: 'New'
     });
+
+    // Fire email notification asynchronously
+    sendLeadNotificationEmail({
+      name,
+      company,
+      phone,
+      email,
+      location,
+      requirement: message,
+      type: 'Contact'
+    }).catch(err => console.error('Contact email error:', err));
 
     return NextResponse.json({ success: true, lead });
   } catch (err: any) {
