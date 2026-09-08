@@ -1,0 +1,235 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Cisco CBS350-24P-4G Managed Gigabit PoE Switch",
+    "slug": "cisco-cbs350-24p-4g",
+    "category": "Switches",
+    "brand": "Cisco",
+    "modelNumber": "CBS350-24P-4G",
+    "shortDesc": "24-Port Gigabit Ethernet PoE+ Managed Switch with 4 x Gigabit SFP Uplinks. Ideal for enterprise CCTV and voice networks.",
+    "specs": {
+      "Port Count": "24 x 10/100/1000 Gigabit PoE+ Ports",
+      "Uplinks": "4 x 1G SFP Optical Ports",
+      "PoE Power Budget": "195W / 370W option",
+      "Switching Capacity": "56 Gbps",
+      "Layer Support": "Layer 3 static routing, VLAN, QoS, ACL",
+      "Warranty": "Cisco Limited Lifetime Warranty"
+    },
+    "isAvailable": true,
+    "featured": true,
+    "animation3d": "switch-3d"
+  },
+  {
+    "id": "prod-2",
+    "name": "Hikvision 4MP AcuSense DarkFighter IP Bullet Camera",
+    "slug": "hikvision-4mp-acusense-bullet",
+    "category": "CCTV",
+    "brand": "Hikvision",
+    "modelNumber": "DS-2CD2046G2-IU",
+    "shortDesc": "Smart 4MP IP camera with deep learning human/vehicle target classification, DarkFighter low-light color, and built-in mic.",
+    "specs": {
+      "Resolution": "4 Megapixel (2688 × 1520 @ 30fps)",
+      "Night Vision": "DarkFighter Ultra-Low Light + 40m IR",
+      "AI Analytics": "False alarm reduction based on human & vehicle targets",
+      "Housing": "IP67 Weatherproof metal enclosure",
+      "Audio": "Built-in microphone with environmental noise filtering",
+      "Interface": "PoE (802.3af) / 12V DC"
+    },
+    "isAvailable": true,
+    "featured": true,
+    "animation3d": "cctv-3d"
+  },
+  {
+    "id": "prod-3",
+    "name": "Dell PowerEdge R450 1U Rack Server",
+    "slug": "dell-poweredge-r450",
+    "category": "Servers",
+    "brand": "Dell Technologies",
+    "modelNumber": "PowerEdge R450",
+    "shortDesc": "Dual-socket 1U rack server delivering scalable compute and density for enterprise ERP, databases, and virtualization.",
+    "specs": {
+      "Processor": "Up to 2x 3rd Gen Intel Xeon Scalable Processors",
+      "Memory": "Up to 1TB DDR4 2933MT/s RDIMM (16 slots)",
+      "Storage": "Up to 8x 2.5-inch or 4x 3.5-inch Hot-Plug SAS/SATA/NVMe",
+      "RAID Controller": "PERC H755 / H355 hardware RAID controller",
+      "Power Supply": "Dual Redundant Hot-Plug Titanium 800W",
+      "Management": "iDRAC9 Enterprise with OpenManage"
+    },
+    "isAvailable": true,
+    "featured": true,
+    "animation3d": "server-3d"
+  },
+  {
+    "id": "prod-4",
+    "name": "Sophos XGS 126 Next-Gen Firewall Appliance",
+    "slug": "sophos-xgs-126",
+    "category": "Firewalls",
+    "brand": "Sophos",
+    "modelNumber": "XGS 126 / 126w",
+    "shortDesc": "High-speed dual-processor hardware firewall with dedicated Xstream Flow Processor for encrypted traffic and zero-day protection.",
+    "specs": {
+      "Firewall Throughput": "10,500 Mbps",
+      "Threat Protection": "900 Mbps NGFW + Antivirus + IPS",
+      "VPN Throughput": "3,150 Mbps IPsec VPN",
+      "Interfaces": "14x GbE Copper, 2x GbE SFP Fiber",
+      "Security": "Deep Packet Inspection, SSL/TLS decryption, Web filter",
+      "Form Factor": "Desktop / Rackmount kit included"
+    },
+    "isAvailable": true,
+    "featured": true,
+    "animation3d": "firewall-3d"
+  },
+  {
+    "id": "prod-5",
+    "name": "APC Smart-UPS On-Line 6kVA / 6000VA 230V",
+    "slug": "apc-smart-ups-online-6kva",
+    "category": "UPS",
+    "brand": "APC by Schneider",
+    "modelNumber": "SRT6KXLI",
+    "shortDesc": "High density, double-conversion online power protection with scalable runtime for server rooms, network racks, and lab gear.",
+    "specs": {
+      "Power Capacity": "6000 Watts / 6000 VA",
+      "Topology": "Double Conversion Online (0ms transfer)",
+      "Waveform Type": "Pure Sine Wave",
+      "Output Connections": "Hardwire 3-wire, 6x IEC C13, 4x IEC C19",
+      "Management": "Pre-installed Network Management Card with SNMP",
+      "Battery Type": "Lead-acid with hot-swappable battery modules"
+    },
+    "isAvailable": true,
+    "featured": false,
+    "animation3d": "ups-3d"
+  },
+  {
+    "id": "prod-6",
+    "name": "Lenovo ThinkCentre Neo 50s Gen 4 Small Form Factor Desktop",
+    "slug": "lenovo-thinkcentre-neo-50s",
+    "category": "Hardware",
+    "brand": "Lenovo",
+    "modelNumber": "Neo 50s SFF",
+    "shortDesc": "Compact, powerful commercial business desktop engineered for high reliability, fast processing, and low power consumption.",
+    "specs": {
+      "Processor": "13th Gen Intel Core i5-13400 (up to 4.6 GHz)",
+      "Memory": "16GB DDR4 3200MHz (expandable to 64GB)",
+      "Storage": "512GB M.2 NVMe PCIe SSD + 1TB HDD bay",
+      "Operating System": "Windows 11 Pro 64-bit pre-installed",
+      "Connectivity": "Gigabit LAN, Wi-Fi 6, USB 3.2 Gen 1, HDMI, DisplayPort",
+      "Security": "Hardware TPM 2.0, Kensington lock slot"
+    },
+    "isAvailable": true,
+    "featured": false,
+    "animation3d": "workstation-3d"
+  },
+  {
+    "id": "prod-7",
+    "name": "Ubiquiti UniFi U6 Pro Enterprise Wi-Fi 6 Access Point",
+    "slug": "ubiquiti-unifi-u6-pro",
+    "category": "Wireless",
+    "brand": "Ubiquiti",
+    "modelNumber": "U6-Pro",
+    "shortDesc": "Dual-band Wi-Fi 6 access point delivering 5.3 Gbps aggregate throughput and 300+ concurrent clients for warehouses and offices.",
+    "specs": {
+      "Wi-Fi Standard": "Wi-Fi 6 (802.11ax)",
+      "MIMO Architecture": "4x4 MU-MIMO & OFDMA",
+      "Throughput Rate": "5.3 Gbps Aggregate Speed",
+      "Coverage Area": "140 m² (1,500 ft²)",
+      "Power Source": "PoE+ (802.3at) compliant"
+    },
+    "isAvailable": true,
+    "featured": true,
+    "animation3d": "wireless-3d"
+  },
+  {
+    "id": "prod-8",
+    "name": "eSSL SilkBio-101TC Visible Light Face & Fingerprint Terminal",
+    "slug": "essl-silkbio-101tc",
+    "category": "Biometrics",
+    "brand": "eSSL",
+    "modelNumber": "SilkBio-101TC",
+    "shortDesc": "High-speed multi-biometric terminal with SilkID fingerprint scanner, face recognition, RFID card reader, and cloud payroll sync.",
+    "specs": {
+      "Face Capacity": "2,000 Faces",
+      "Fingerprint Capacity": "3,000 Fingerprints",
+      "Card Capacity": "10,000 Cards",
+      "Log Capacity": "100,000 Events",
+      "Communication": "TCP/IP, USB Host, Wi-Fi"
+    },
+    "isAvailable": true,
+    "featured": true,
+    "animation3d": "biometric-3d"
+  },
+  {
+    "id": "prod-9",
+    "name": "Fortinet FortiGate 60F Unified Threat Management Firewall",
+    "slug": "fortinet-fortigate-60f",
+    "category": "Firewalls",
+    "brand": "Fortinet",
+    "modelNumber": "FG-60F",
+    "shortDesc": "Enterprise-grade desktop firewall with patented SOC4 processor delivering AI-powered security for distributed branches and plant networks.",
+    "specs": {
+      "Firewall Throughput": "10 Gbps",
+      "IPS Throughput": "1.4 Gbps",
+      "NGFW Throughput": "1 Gbps",
+      "Threat Protection": "700 Mbps",
+      "Interfaces": "10x GE RJ45 Ports"
+    },
+    "isAvailable": true,
+    "featured": false,
+    "animation3d": "firewall-3d"
+  },
+  {
+    "id": "prod-10",
+    "name": "CP PLUS 4MP Pro Guard Network Dome Camera",
+    "slug": "cp-plus-4mp-pro-guard-dome",
+    "category": "CCTV",
+    "brand": "CP PLUS",
+    "modelNumber": "CP-UNC-DA41L3-MD",
+    "shortDesc": "Vandal-resistant 4MP IP dome camera with 30m Smart IR night vision, IP67/IK10 rating, and built-in audio for cleanrooms and corridors.",
+    "specs": {
+      "Resolution": "4MP (2560 × 1440 @ 25fps)",
+      "Lens Type": "2.8mm / 3.6mm Fixed Lens",
+      "Night Vision": "30m Smart IR with ICR",
+      "Vandal Proof": "IK10 Impact & IP67 Weatherproof",
+      "Audio": "Built-in Noise Filtering Microphone"
+    },
+    "isAvailable": true,
+    "featured": false,
+    "animation3d": "cctv-3d"
+  },
+  {
+    "id": "prod-11",
+    "name": "Honeywell Voyager 1400g 2D Handheld Industrial Barcode Scanner",
+    "slug": "honeywell-voyager-1400g",
+    "category": "Hardware",
+    "brand": "Honeywell",
+    "modelNumber": "Voyager 1400g",
+    "shortDesc": "High-performance area-imaging scanner capable of reading 1D, PDF, and 2D barcodes on paper, curved bottles, and mobile screens.",
+    "specs": {
+      "Scan Technology": "Area Image (640 x 480 pixel array)",
+      "Drop Resistance": "Withstands 30 drops from 1.5m to concrete",
+      "Interface Support": "USB, Keyboard Wedge, RS232",
+      "Environmental": "IP42 Sealing rating"
+    },
+    "isAvailable": true,
+    "featured": false,
+    "animation3d": "workstation-3d"
+  },
+  {
+    "id": "prod-12",
+    "name": "D-Link DGS-1210-28P 24-Port Gigabit Smart Managed PoE+ Switch",
+    "slug": "dlink-dgs-1210-28p",
+    "category": "Switches",
+    "brand": "D-Link",
+    "modelNumber": "DGS-1210-28P",
+    "shortDesc": "24-Port 10/100/1000Base-T PoE+ with 4 Gigabit RJ45/SFP Combo Ports. Generous 193W PoE budget with surveillance VLAN support.",
+    "specs": {
+      "PoE Ports": "24 x 802.3at/af PoE+ Ports",
+      "PoE Budget": "193W Total Power",
+      "Combo Uplinks": "4 x Combo RJ45/SFP Ports",
+      "Switching Capacity": "56 Gbps",
+      "Special Mode": "Auto Surveillance VLAN"
+    },
+    "isAvailable": true,
+    "featured": false,
+    "animation3d": "switch-3d"
+  }
+]

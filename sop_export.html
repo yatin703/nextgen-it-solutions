@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NextGen IT Solution - SOP & Documentation</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 14mm 14mm 14mm 14mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.45;
+    font-size: 9pt;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+
+  /* Cover Page */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 92vh;
+    padding: 20px 10px 10px 10px;
+    page-break-after: always;
+  }
+
+  .cover-top {
+    border-bottom: 4px solid #2563eb;
+    padding-bottom: 25px;
+  }
+
+  .brand-logo {
+    display: inline-block;
+    background: #0f172a;
+    color: #38bdf8;
+    padding: 8px 18px;
+    font-weight: 800;
+    font-size: 16pt;
+    border-radius: 8px;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+
+  .brand-logo span {
+    color: #ffffff;
+  }
+
+  .cover-title {
+    font-size: 25pt;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .cover-subtitle {
+    font-size: 12.5pt;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .cover-tagline {
+    font-size: 10pt;
+    color: #64748b;
+    line-height: 1.5;
+    max-width: 600px;
+  }
+
+  .cover-meta-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #2563eb;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-top: 30px;
+  }
+
+  .cover-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 20px;
+    font-size: 9pt;
+  }
+
+  .cover-meta-item strong {
+    color: #0f172a;
+    display: block;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .cover-footer {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+    font-size: 8pt;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* General Typography */
+  h1 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    margin-top: 10px;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1e40af;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+
+  ul, ol {
+    margin-left: 18px;
+    margin-bottom: 10px;
+    color: #334155;
+    font-size: 9pt;
+  }
+
+  li {
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+
+  th {
+    background: #0f172a;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 7px 9px;
+    border: 1px solid #0f172a;
+  }
+
+  td {
+    padding: 6px 9px;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+
+  /* Alert / Callout boxes */
+  .callout {
+    background: #f0f9ff;
+    border-left: 4px solid #0284c7;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: #0369a1;
+    margin-bottom: 3px;
+  }
+
+  .callout-success {
+    background: #f0fdf4;
+    border-left-color: #16a34a;
+  }
+  .callout-success .callout-title {
+    color: #15803d;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-green { background: #dcfce7; color: #166534; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+
+  /* Flow Steps */
+  .step-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 9px 12px;
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .step-number {
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 8pt;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-title {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 9pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="brand-logo">NextGen <span>IT SOLUTION</span></div>
+    <div class="cover-title">Standard Operating Procedure (SOP) & Technical Manual</div>
+    <div class="cover-subtitle">Enterprise IT Infrastructure, CCTV Surveillance & SLA Management</div>
+    <div class="cover-tagline">
+      Comprehensive operational guidelines for sales inquiry processing, technical site surveys, structured cabling execution, BOQ formulation, and mini-CRM lifecycle management across Vapi, Silvassa, and Daman.
+    </div>
+  </div>
+
+  <div class="cover-meta-box">
+    <div class="cover-meta-grid">
+      <div class="cover-meta-item">
+        <strong>Document Code</strong>
+        SOP-NG-IT-001 (Rev 1.0)
+      </div>
+      <div class="cover-meta-item">
+        <strong>Effective Date</strong>
+        September 2026
+      </div>
+      <div class="cover-meta-item">
+        <strong>Target Regions</strong>
+        Vapi GIDC • Silvassa • Daman • Sarigam • Umbergaon
+      </div>
+      <div class="cover-meta-item">
+        <strong>Operational Scope</strong>
+        Sales, Network Engineering, CCTV, IT AMC, Web CRM
+      </div>
+      <div class="cover-meta-item">
+        <strong>Authorized OEM Partners</strong>
+        Cisco • Hikvision • Sophos • Dell • HPE • APC Schneider
+      </div>
+      <div class="cover-meta-item">
+        <strong>Classification</strong>
+        Internal Operations & Client SLA Compliance
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span>© 2026 NextGen IT Solution. Confidential & Proprietary.</span>
+    <span>Char Rasta, GIDC Industrial Estate, Vapi, Gujarat 396195</span>
+  </div>
+</div>
+
+<!-- SECTION 1: REGIONAL MISSION & ARCHITECTURE -->
+<div class="page-break">
+  <h1>1. Company Profile & Regional Mission</h1>
+  
+  <p>
+    <strong>NextGen IT Solution</strong> is a specialized technology infrastructure and surveillance engineering company headquartered in Vapi, Gujarat. We bridge the gap between complex enterprise IT standards and the rugged demands of heavy industrial plants, pharmaceutical facilities, packaging mills, and corporate offices across South Gujarat and the Union Territories.
+  </p>
+
+  <div class="callout callout-success">
+    <div class="callout-title">Core Regional Value Proposition</div>
+    Unlike generic metropolitan IT vendors or retail computer shops, NextGen IT Solution maintains local warehousing of critical networking components, fiber optic fusion splicers, and a dedicated roster of field engineers providing <strong>2 to 4 hour emergency onsite response SLAs</strong> in Vapi GIDC, Silvassa (Piparia/Amli), and Daman (Kachigam/Somnath).
+  </div>
+
+  <h2>1.1 Regional Industrial Coverage</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Industrial Zone</th>
+        <th>Key Estates Covered</th>
+        <th>Primary Industries</th>
+        <th>Standard SLA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Vapi GIDC</strong></td>
+        <td>Phases I–IV, Morai, Chanod, Balitha</td>
+        <td>Chemicals, Dyes, Pharma, Paper Mills</td>
+        <td><span class="badge badge-green">2 - 3 Hours</span></td>
+      </tr>
+      <tr>
+        <td><strong>Silvassa (DNH)</strong></td>
+        <td>Piparia, Amli, Masat, Rakholi, Sayli</td>
+        <td>Textiles, Yarn, Plastics, FMCG</td>
+        <td><span class="badge badge-green">3 - 4 Hours</span></td>
+      </tr>
+      <tr>
+        <td><strong>Daman (DD)</strong></td>
+        <td>Kachigam, Somnath, Dabhel, Ringanwada</td>
+        <td>Pharma formulations, Packaging, Molding</td>
+        <td><span class="badge badge-green">3 - 4 Hours</span></td>
+      </tr>
+      <tr>
+        <td><strong>Sarigam & Umbergaon</strong></td>
+        <td>Sarigam GIDC, Umbergaon Industrial Area</td>
+        <td>Chemical Processing, Engineering Units</td>
+        <td><span class="badge badge-amber">4 Hours</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>1.2 Core Technology Architecture (15 Offerings)</h2>
+  <ul>
+    <li><strong>Structured Cabling & LAN:</strong> TIA/EIA compliant CAT6/CAT6A copper networks, 24U–42U server rack dressing, patch panels, and fluke certification.</li>
+    <li><strong>CCTV & Video Surveillance:</strong> 4K AcuSense IP cameras, DarkFighter low-light color, AI human/vehicle perimeter detection, and NVR arrays.</li>
+    <li><strong>Fiber Optic Backbone:</strong> Single-mode (OS2) and multi-mode (OM3/OM4) armored optical fiber laying, fusion splicing, and OTDR testing.</li>
+    <li><strong>Firewall & Cybersecurity:</strong> Next-Gen Firewalls (Sophos XGS, Fortinet), multi-WAN failover, Site-to-Site IPsec VPNs, and ransomware defense.</li>
+    <li><strong>Servers & Storage:</strong> Dell PowerEdge & HPE rack servers, Synology enterprise NAS, hardware RAID (1/5/6/10), and virtualization.</li>
+    <li><strong>IT AMC & Onsite SLA:</strong> Comprehensive & Non-Comprehensive maintenance contracts for computers, switches, and servers.</li>
+    <li><strong>Commercial Hardware:</strong> CAD/CAM workstations, Dell/HP desktops, corporate laptops, and thermal barcode printers.</li>
+  </ul>
+</div>
+
+<!-- SECTION 2: SALES & INQUIRY MANAGEMENT SOP -->
+<div class="page-break">
+  <h1>2. Standard Operating Procedure: Sales & Inquiries</h1>
+  
+  <p>
+    This SOP governs how all prospective client inquiries, web form submissions, and tender Bill of Quantities (BOQ) uploads are recorded, evaluated, and transitioned into closed projects.
+  </p>
+
+  <div class="step-box">
+    <div class="step-header">
+      <span class="step-number">1</span>
+      <span class="step-title">Inquiry Capture & Lead Ingestion</span>
+    </div>
+    <p>
+      Inquiries arrive automatically via the web portal (<code>/quote</code> or <code>/contact</code>) or direct WhatsApp/Phone. Every submission automatically creates a unique record in the database with status <span class="badge badge-amber">New</span> (e.g. <code>LEAD-1005</code>).
+    </p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-header">
+      <span class="step-number">2</span>
+      <span class="step-title">CRM Verification & BOQ Download</span>
+    </div>
+    <p>
+      The sales desk opens the Mini-CRM dashboard at <code>/admin/leads</code>. The coordinator verifies client details (Company Name, Location, Phone) and downloads the attached BOQ file (PDF/Excel) from the <em>"View BOQ"</em> link.
+    </p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-header">
+      <span class="step-number">3</span>
+      <span class="step-title">First Response Protocol (SLA &lt; 2 Hours)</span>
+    </div>
+    <p>
+      The coordinator clicks the direct <strong>WhatsApp</strong> button on the lead row or calls the client. Confirm project scope, ask clarifying questions (number of CCTV points, ceiling height, building distances), and update status to <span class="badge badge-blue">Contacted</span>.
+    </p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-header">
+      <span class="step-number">4</span>
+      <span class="step-title">Site Survey & Technical Costing</span>
+    </div>
+    <p>
+      If the project requires physical verification, dispatch a field engineer within 24 hours. The engineering team applies authorized B2B vendor pricing (Cisco, Hikvision, Sophos, Dell) and formats an official PDF quotation.
+    </p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-header">
+      <span class="step-number">5</span>
+      <span class="step-title">Quotation Dispatch & Pipeline Tracking</span>
+    </div>
+    <p>
+      Send quotation via email and WhatsApp. In the CRM, change lead status to <span class="badge badge-blue">Quotation Sent</span> and record the quotation number in the internal notes field.
+    </p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-header">
+      <span class="step-number">6</span>
+      <span class="step-title">Deal Closing & Handover</span>
+    </div>
+    <p>
+      Upon receiving Purchase Order (PO) or advance payment, update status to <span class="badge badge-green">Won</span>. If the client defers or cancels, update status to <strong>Lost</strong> with explanatory notes.
+    </p>
+  </div>
+
+  <h2>2.1 Pipeline Status Lifecycle Matrix</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Meaning</th>
+        <th>Action Required</th>
+        <th>Target Turnaround</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-amber">New</span></td>
+        <td>Uncontacted inquiry received</td>
+        <td>Review BOQ, call or WhatsApp client</td>
+        <td>Within 2 Hours</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">Contacted</span></td>
+        <td>Initial discussion completed</td>
+        <td>Schedule site visit or calculate BOQ</td>
+        <td>Within 24 Hours</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">Quotation Sent</span></td>
+        <td>Formal proposal delivered</td>
+        <td>Follow up with purchase committee</td>
+        <td>Every 3 Days</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">Negotiation</span></td>
+        <td>Commercial terms being finalized</td>
+        <td>Finalize volume discounts & delivery terms</td>
+        <td>Within 5 Days</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">Won</span></td>
+        <td>Deal closed, PO issued</td>
+        <td>Handover to Field Engineering Team</td>
+        <td>Immediate</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 3: TECHNICAL FIELD OPERATIONS SOP -->
+<div class="page-break">
+  <h1>3. SOP: Technical Field Engineering Operations</h1>
+  
+  <p>
+    This SOP provides compulsory technical standards for cabling, CCTV deployment, server configuration, and quality certification on client sites.
+  </p>
+
+  <h2>3.1 Physical Site Survey Checklist</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Check Item</th>
+        <th>Technical Standard</th>
+        <th>Risk Mitigation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Cable Pathway Distances</strong></td>
+        <td>Copper CAT6 runs must NOT exceed 90 meters from switch to IO.</td>
+        <td>If &gt;90m, mandate fiber optic link or intermediary PoE switch.</td>
+      </tr>
+      <tr>
+        <td><strong>Electromagnetic Interference</strong></td>
+        <td>Keep data cables &gt;300mm away from 415V 3-phase industrial power cables.</td>
+        <td>Use shielded CAT6A STP or armored fiber in machine rooms.</td>
+      </tr>
+      <tr>
+        <td><strong>Electrical Earthing</strong></td>
+        <td>Server rack & switch earthing must measure &lt;2.0 Ohms ground resistance.</td>
+        <td>Prevents equipment damage from industrial surges or lightning.</td>
+      </tr>
+      <tr>
+        <td><strong>CCTV Lens Selection</strong></td>
+        <td>Use 2.8mm for wide indoor rooms; 4mm/6mm for factory shop floor corridors; 12mm+ for entry gate number plates.</td>
+        <td>Eliminates blind spots and provides crisp evidence.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3.2 Certified Installation & Rack Dressing Standards</h2>
+  <ul>
+    <li><strong>Conduit Protection:</strong> All cables must run inside heavy-duty rigid PVC or galvanized iron (GI) conduits with metal saddles every 1 meter. No hanging or loose cables permitted.</li>
+    <li><strong>Printed Ferrule Labeling:</strong> Every single cable must have machine-printed heat-shrink ferrule tags at both ends (e.g. <code>RACK1-SW2-PORT14</code>). Hand-written tape is strictly prohibited.</li>
+    <li><strong>Rack Cable Management:</strong> Use 1U brush panels and horizontal cable managers. Bundle patch cords with reusable hook-and-loop velcro straps (never plastic zip ties).</li>
+    <li><strong>Optical Fiber LIU:</strong> Fusion-spliced pigtails must be neatly coiled inside the Light Interface Unit (LIU) tray with minimum bend radius &gt;30mm.</li>
+    <li><strong>Testing & Certification:</strong> 100% of terminated network points must be tested using a calibrated Fluke Cable Analyzer. Export PDF wiremap & throughput certificates for the client handover binder.</li>
+  </ul>
+
+  <h2>3.3 CCTV Quality Assurance Protocol</h2>
+  <ul>
+    <li>Verify weatherproof IP67 cable gland seals on all outdoor dome and bullet cameras.</li>
+    <li>Set camera encoding to <strong>H.265+</strong> smart compression to maximize recording retention (30–90 days).</li>
+    <li>Configure AI intrusion detection lines across boundary walls and calibrate sensitivity to filter out stray animals and rain.</li>
+    <li>Set up secure remote viewing credentials with strong alphanumeric passwords and role-based permissions (Security Guard view vs Director playback).</li>
+  </ul>
+</div>
+
+<!-- SECTION 4: AMC & SYSTEM MAINTENANCE SOP -->
+<div>
+  <h1>4. SOP: Annual Maintenance Contracts & System Ops</h1>
+
+  <h2>4.1 AMC Contract Tiers & Response Matrix</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Contract Tier</th>
+        <th>Target Client</th>
+        <th>Scope of Support</th>
+        <th>Emergency Onsite SLA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Tier 1: Non-Comprehensive</strong></td>
+        <td>General corporate offices, commercial shops</td>
+        <td>Preventive servicing, OS patches, labor only (client pays for parts)</td>
+        <td>4 to 6 Business Hours</td>
+      </tr>
+      <tr>
+        <td><strong>Tier 2: Comprehensive</strong></td>
+        <td>Continuous manufacturing plants, GIDC units</td>
+        <td>All hardware replacement spares included, standby loaner units</td>
+        <td><span class="badge badge-green">2 to 4 Hours</span></td>
+      </tr>
+      <tr>
+        <td><strong>Tier 3: Facility Management (FMS)</strong></td>
+        <td>Large chemical complexes, pharma campuses</td>
+        <td>Dedicated full-time resident engineer stationed on-site</td>
+        <td><span class="badge badge-green">Immediate (0 min)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4.2 Monthly Preventive Maintenance Schedule</h2>
+  <div class="step-box">
+    <div class="step-title">Week 1: Server & Backup Audit</div>
+    <p>Check RAID array health, verify automated cloud & NAS backups, inspect server event logs, and verify UPS battery runtime.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-title">Week 2: Network & Firewall Audit</div>
+    <p>Inspect managed switch port errors, check firewall threat logs, verify VPN connections, and clean network rack dust filters.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-title">Week 3: CCTV & Surveillance Audit</div>
+    <p>Clean camera optical lenses, verify HDD health in NVR, confirm continuous recording on all channels, and adjust night IR illumination.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-title">Week 4: Desktop & Workstation Health</div>
+    <p>Perform internal dust blowing, test thermal paste on CPUs, verify antivirus definitions, and clear temporary files.</p>
+  </div>
+
+  <h2>4.3 Web Portal & Mini-CRM Administration Commands</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Command / Procedure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Start Dev Server</strong></td>
+        <td><code>cd C:\Users\yatin.patel\.gemini\antigravity\scratch\nextgen-it-solutions &amp;&amp; npm run dev</code></td>
+      </tr>
+      <tr>
+        <td><strong>Build for Production</strong></td>
+        <td><code>npm run build &amp;&amp; npm run start</code></td>
+      </tr>
+      <tr>
+        <td><strong>Access Mini-CRM</strong></td>
+        <td>Navigate to <code>http://localhost:3000/admin/leads</code></td>
+      </tr>
+      <tr>
+        <td><strong>Lead Backup</strong></td>
+        <td>Backup <code>data/leads.json</code> and <code>public/uploads/</code> to external drive weekly</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Document Sign-off & Maintenance</div>
+    This Standard Operating Procedure is maintained by NextGen IT Solution Engineering Operations. For updates, suggestions, or escalation queries, contact: <strong>support@nextgenitsolution.com</strong> | <strong>Hotline: +91 98251 12345</strong>.
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, [data-theme="corporate-blue"] {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 255, 255, 255;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --accent-color: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-light: #f0fdfa;
+  --badge-bg: #dbeafe;
+  --badge-text: #1e40af;
+}
+
+[data-theme="industrial-teal"] {
+  --foreground-rgb: 15, 23, 42;
+  --primary-color: #0f766e;
+  --primary-hover: #115e59;
+  --primary-light: #f0fdfa;
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #eff6ff;
+  --badge-bg: #ccfbf1;
+  --badge-text: #115e59;
+}
+
+[data-theme="cyber-emerald"] {
+  --foreground-rgb: 15, 23, 42;
+  --primary-color: #059669;
+  --primary-hover: #047857;
+  --primary-light: #ecfdf5;
+  --accent-color: #0284c7;
+  --accent-hover: #0369a1;
+  --accent-light: #f0f9ff;
+  --badge-bg: #d1fae5;
+  --badge-text: #065f46;
+}
+
+[data-theme="midnight-navy"] {
+  --foreground-rgb: 15, 23, 42;
+  --primary-color: #1e3a8a;
+  --primary-hover: #172554;
+  --primary-light: #eef2ff;
+  --accent-color: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-light: #f0fdfa;
+  --badge-bg: #e0e7ff;
+  --badge-text: #312e81;
+}
+
+.theme-btn-primary {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease;
+}
+
+.theme-btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+}
+
+.theme-text-primary {
+  color: var(--primary-color) !important;
+}
+
+.theme-border-primary {
+  border-color: var(--primary-color) !important;
+}
+
+.theme-badge {
+  background-color: var(--badge-bg) !important;
+  color: var(--badge-text) !important;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #f8fafc;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(4deg) rotateY(-4deg);
+  }
+  50% {
+    transform: translateY(-8px) rotateX(-2deg) rotateY(4deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float-3d {
+  animation: float3d 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 16s linear infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
