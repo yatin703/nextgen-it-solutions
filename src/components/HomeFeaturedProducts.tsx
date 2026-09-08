@@ -1,16 +1,16 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { 
   ArrowRight, 
   Sparkles, 
   CheckCircle2, 
   Clock, 
-  Star, 
-  ShieldCheck, 
-  Layers,
-  ChevronRight
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play
 } from 'lucide-react';
 import { ProductItem } from '@/lib/types';
 import { INITIAL_PRODUCTS } from '@/lib/data';
@@ -20,6 +20,7 @@ import Product3DVisual from './Product3DVisual';
 export default function HomeFeaturedProducts() {
   const [products, setProducts] = useState<ProductItem[]>(INITIAL_PRODUCTS);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     fetch('/api/products')
@@ -35,6 +36,25 @@ export default function HomeFeaturedProducts() {
   const featured = products.filter(p => p.featured);
   const displayProducts = featured.length >= 3 ? featured : products.slice(0, 6);
   const activeProduct = displayProducts[activeIndex] || displayProducts[0];
+
+  const handlePrev = useCallback(() => {
+    setActiveIndex(prev => (prev === 0 ? displayProducts.length - 1 : prev - 1));
+  }, [displayProducts.length]);
+
+  const handleNext = useCallback(() => {
+    setActiveIndex(prev => (prev + 1) % displayProducts.length);
+  }, [displayProducts.length]);
+
+  // Automatic Slide Switching (Every 5 seconds, pauses when user hovers or interacts)
+  useEffect(() => {
+    if (displayProducts.length <= 1 || isPaused) return;
+
+    const timer = setInterval(() => {
+      handleNext();
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [displayProducts.length, isPaused, handleNext]);
 
   return (
     <div className="space-y-10">
@@ -61,108 +81,169 @@ export default function HomeFeaturedProducts() {
         </Link>
       </div>
 
-      {/* 3D Interactive Spotlight Showcase */}
+      {/* 3D Interactive Spotlight Showcase Carousel */}
       {activeProduct && (
-        <div className="bg-gradient-to-br from-slate-900 via-[#0f172a] to-[#1e293b] rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-slate-700/60 relative overflow-hidden">
-          {/* Ambient Glow */}
+        <div 
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="bg-gradient-to-br from-slate-900 via-[#0f172a] to-[#1e293b] rounded-3xl text-white shadow-2xl border border-slate-700/60 relative overflow-hidden group/showcase"
+        >
+          {/* Ambient Glow Effects */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left: Interactive 3D Model Stage (Takes 6 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-center">
-              <div className="w-full max-w-lg">
-                <Product3DVisual product={activeProduct} size="lg" interactive={true} />
-              </div>
-              <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-cyan-300/80">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-                <span>Move mouse over card to rotate & inspect in 3D space</span>
-              </div>
-            </div>
+          {/* Previous Arrow Button (Left) */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            aria-label="Previous Product"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-800/80 hover:bg-blue-600 border border-slate-700/80 hover:border-blue-400 text-slate-300 hover:text-white flex items-center justify-center backdrop-blur-md shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none group/arrow"
+          >
+            <ChevronLeft className="w-6 h-6 group-hover/arrow:-translate-x-0.5 transition-transform" />
+          </button>
 
-            {/* Right: Technical Specs & Quick Quotation (Takes 6 cols) */}
-            <div className="lg:col-span-6 space-y-5">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="px-2.5 py-1 rounded bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs font-bold uppercase tracking-wider">
-                  {activeProduct.brand}
-                </span>
-                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 text-xs font-mono">
-                  {activeProduct.modelNumber}
-                </span>
-                <span className="px-2.5 py-1 rounded bg-teal-500/20 text-teal-300 border border-teal-400/30 text-xs font-semibold">
-                  {activeProduct.category}
-                </span>
+          {/* Next Arrow Button (Right) */}
+          <button
+            type="button"
+            onClick={handleNext}
+            aria-label="Next Product"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-800/80 hover:bg-blue-600 border border-slate-700/80 hover:border-blue-400 text-slate-300 hover:text-white flex items-center justify-center backdrop-blur-md shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none group/arrow"
+          >
+            <ChevronRight className="w-6 h-6 group-hover/arrow:translate-x-0.5 transition-transform" />
+          </button>
+
+          {/* Main Showcase Inner Padding with clearance for arrows */}
+          <div className="p-6 sm:p-10 px-12 sm:px-16 lg:px-20 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left: Interactive 3D Model Stage (Takes 6 cols) */}
+              <div className="lg:col-span-6 flex flex-col items-center">
+                <div className="w-full max-w-lg transition-all duration-300">
+                  <Product3DVisual product={activeProduct} size="lg" interactive={true} />
+                </div>
+                <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-cyan-300/80">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+                  <span>Move mouse over card to rotate & inspect in 3D space</span>
+                </div>
               </div>
 
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                  {activeProduct.name}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                  {activeProduct.shortDesc}
-                </p>
-              </div>
+              {/* Right: Technical Specs & Quick Quotation (Takes 6 cols) */}
+              <div className="lg:col-span-6 space-y-5">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-2.5 py-1 rounded bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs font-bold uppercase tracking-wider">
+                      {activeProduct.brand}
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 text-xs font-mono">
+                      {activeProduct.modelNumber}
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-teal-500/20 text-teal-300 border border-teal-400/30 text-xs font-semibold">
+                      {activeProduct.category}
+                    </span>
+                  </div>
 
-              {/* Specs Grid */}
-              {activeProduct.specs && Object.keys(activeProduct.specs).length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-slate-800/60 rounded-xl p-3.5 border border-slate-700/60 text-xs">
-                  {Object.entries(activeProduct.specs).slice(0, 4).map(([key, val]) => (
-                    <div key={key} className="flex justify-between items-center text-slate-300 py-0.5 border-b border-slate-700/40 last:border-0">
-                      <span className="text-slate-400 font-medium truncate mr-2">{key}:</span>
-                      <span className="font-semibold text-white truncate text-right max-w-[150px]">{val}</span>
+                  {/* Slide count & Auto-play status pill */}
+                  <div className="flex items-center gap-2 text-[11px] font-mono text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-700/60">
+                    <span className="text-teal-400 font-bold">{activeIndex + 1}</span>
+                    <span>/</span>
+                    <span>{displayProducts.length}</span>
+                    <span className="text-slate-500">•</span>
+                    <span className="text-[10px] text-slate-400 flex items-center gap-1">
+                      {isPaused ? 'Paused' : 'Auto 5s'}
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                    {activeProduct.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                    {activeProduct.shortDesc}
+                  </p>
+                </div>
+
+                {/* Specs Grid */}
+                {activeProduct.specs && Object.keys(activeProduct.specs).length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-slate-800/60 rounded-xl p-3.5 border border-slate-700/60 text-xs">
+                    {Object.entries(activeProduct.specs).slice(0, 4).map(([key, val]) => (
+                      <div key={key} className="flex justify-between items-center text-slate-300 py-0.5 border-b border-slate-700/40 last:border-0">
+                        <span className="text-slate-400 font-medium truncate mr-2">{key}:</span>
+                        <span className="font-semibold text-white truncate text-right max-w-[150px]">{val}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Stock status & Action */}
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-2 text-xs font-semibold">
+                    {activeProduct.isAvailable ? (
+                      <div className="flex items-center gap-1.5 text-emerald-400">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                        <span>In Stock (Vapi / Silvassa Dispatch Ready)</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1.5 text-amber-400">
+                        <Clock className="w-4 h-4 text-amber-400" />
+                        <span>OEM Factory Dispatch (3-5 Days)</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <Link
+                    href={`/quote?service=Products%20%26%20Hardware&requirement=${encodeURIComponent(`Quotation request for ${activeProduct.brand} ${activeProduct.modelNumber} (${activeProduct.name})`)}`}
+                    className="theme-btn-primary font-bold text-xs px-6 py-3 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-center"
+                  >
+                    <span>Request Best B2B Price</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+
+                {/* Hardware Quick Selectors Carousel Tabs + Slide Dots */}
+                <div className="pt-4 border-t border-slate-800 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+                      Quick Select 3D Hardware:
                     </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Stock status & Action */}
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs font-semibold">
-                  {activeProduct.isAvailable ? (
-                    <div className="flex items-center gap-1.5 text-emerald-400">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                      <span>In Stock (Vapi / Silvassa Dispatch Ready)</span>
+                    {/* Visual Slide Dots */}
+                    <div className="flex items-center gap-1.5">
+                      {displayProducts.map((_, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => setActiveIndex(idx)}
+                          aria-label={`Switch to item ${idx + 1}`}
+                          className={`h-1.5 rounded-full transition-all duration-300 ${
+                            activeIndex === idx 
+                              ? 'w-6 bg-gradient-to-r from-blue-400 to-teal-400' 
+                              : 'w-1.5 bg-slate-700 hover:bg-slate-500'
+                          }`}
+                        />
+                      ))}
                     </div>
-                  ) : (
-                    <div className="flex items-center gap-1.5 text-amber-400">
-                      <Clock className="w-4 h-4 text-amber-400" />
-                      <span>OEM Factory Dispatch (3-5 Days)</span>
-                    </div>
-                  )}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {displayProducts.slice(0, 6).map((prod, idx) => (
+                      <button
+                        key={prod.id}
+                        type="button"
+                        onClick={() => setActiveIndex(idx)}
+                        className={`text-xs px-3 py-1.5 rounded-lg font-medium transition flex items-center gap-1.5 ${
+                          activeIndex === idx
+                            ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-500/30'
+                            : 'bg-slate-800/90 text-slate-300 hover:bg-slate-700'
+                        }`}
+                      >
+                        <span>{prod.brand}</span>
+                        <span className="font-mono text-[10px] text-slate-400">({prod.category})</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                <Link
-                  href={`/quote?service=Products%20%26%20Hardware&requirement=${encodeURIComponent(`Quotation request for ${activeProduct.brand} ${activeProduct.modelNumber} (${activeProduct.name})`)}`}
-                  className="theme-btn-primary font-bold text-xs px-6 py-3 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-center"
-                >
-                  <span>Request Best B2B Price</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
-
-              {/* Hardware Quick Selectors Carousel Tabs */}
-              <div className="pt-4 border-t border-slate-800">
-                <div className="text-[11px] font-mono text-slate-400 mb-2 uppercase tracking-wider">
-                  Quick Select 3D Hardware:
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {displayProducts.slice(0, 5).map((prod, idx) => (
-                    <button
-                      key={prod.id}
-                      onClick={() => setActiveIndex(idx)}
-                      className={`text-xs px-3 py-1.5 rounded-lg font-medium transition flex items-center gap-1.5 ${
-                        activeIndex === idx
-                          ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-500/30'
-                          : 'bg-slate-800/90 text-slate-300 hover:bg-slate-700'
-                      }`}
-                    >
-                      <span>{prod.brand}</span>
-                      <span className="font-mono text-[10px] text-slate-400">({prod.category})</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
