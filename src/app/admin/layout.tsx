@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { 
   LayoutDashboard, 
   Users, 
@@ -7,8 +10,9 @@ import {
   Cpu, 
   ExternalLink, 
   Shield, 
-  Briefcase,
-  Palette
+  Palette,
+  LogOut,
+  Lock
 } from 'lucide-react';
 
 export default function AdminLayout({
@@ -16,6 +20,24 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // On the login page, render full-screen view without the admin sidebar
+  if (pathname === '/admin/login') {
+    return <>{children}</>;
+  }
+
+  async function handleLogout() {
+    try {
+      await fetch('/api/admin/logout', { method: 'POST' });
+    } catch (err) {
+      console.error('Logout error:', err);
+    } finally {
+      window.location.href = '/admin/login';
+    }
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row">
       {/* Admin Sidebar */}
@@ -27,42 +49,55 @@ export default function AdminLayout({
             </div>
             <div>
               <div className="text-sm font-bold text-white leading-tight">NextGen CRM</div>
-              <div className="text-[11px] text-teal-400 font-mono">Admin Portal v1.0</div>
+              <div className="text-[11px] text-teal-400 font-mono flex items-center gap-1.5 mt-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+                Protected Admin v1.0
+              </div>
             </div>
           </div>
 
           <nav className="space-y-1 text-sm">
             <Link 
               href="/admin" 
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition"
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition ${
+                pathname === '/admin' ? 'bg-blue-600/20 text-blue-400 font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-800'
+              }`}
             >
               <LayoutDashboard className="w-4 h-4 text-blue-400" />
               <span>Dashboard Overview</span>
             </Link>
             <Link 
               href="/admin/leads" 
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition"
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition ${
+                pathname === '/admin/leads' ? 'bg-blue-600/20 text-teal-400 font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-800'
+              }`}
             >
               <Users className="w-4 h-4 text-teal-400" />
               <span>Lead Pipeline (CRM)</span>
             </Link>
             <Link 
               href="/admin/services" 
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition"
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition ${
+                pathname === '/admin/services' ? 'bg-blue-600/20 text-blue-400 font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-800'
+              }`}
             >
               <Layers className="w-4 h-4 text-blue-400" />
               <span>Manage Services</span>
             </Link>
             <Link 
               href="/admin/products" 
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition"
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition ${
+                pathname === '/admin/products' ? 'bg-blue-600/20 text-teal-400 font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-800'
+              }`}
             >
               <Cpu className="w-4 h-4 text-teal-400" />
               <span>Manage Products</span>
             </Link>
             <Link 
               href="/admin/theme" 
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition"
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition ${
+                pathname === '/admin/theme' ? 'bg-blue-600/20 text-amber-400 font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-800'
+              }`}
             >
               <Palette className="w-4 h-4 text-amber-400" />
               <span>Theme & Branding</span>
@@ -78,9 +113,18 @@ export default function AdminLayout({
             <span>Back to Main Website</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </Link>
-          <div className="text-[11px] text-slate-400 px-3">
-            Connected to Local DB Engine
-          </div>
+          
+          <button 
+            type="button"
+            onClick={handleLogout}
+            className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-rose-950/40 text-rose-300 hover:bg-rose-900/60 hover:text-white border border-rose-900/50 transition font-medium"
+          >
+            <span className="flex items-center gap-2">
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Log Out</span>
+            </span>
+            <span className="text-[10px] text-rose-400">Exit</span>
+          </button>
         </div>
       </aside>
 
