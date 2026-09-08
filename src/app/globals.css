@@ -154,3 +154,53 @@ body {
 .preserve-3d {
   transform-style: preserve-3d;
 }
+
+/* Continuous Running Circuit Animations */
+@keyframes circuitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circuitRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes nodeGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+.animate-circuit-rotate {
+  animation: circuitRotate 14s linear infinite;
+  transform-origin: center;
+}
+
+.animate-circuit-reverse {
+  animation: circuitRotateReverse 20s linear infinite;
+  transform-origin: center;
+}
+
+.animate-circuit-fast {
+  animation: circuitRotate 6s linear infinite;
+  transform-origin: center;
+}
+
+.animate-node-pulse {
+  animation: nodeGlow 2.5s ease-in-out infinite;
+  transform-origin: center;
+}

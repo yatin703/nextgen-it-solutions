@@ -21,6 +21,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ProductCard from '@/components/ProductCard';
 import QuoteForm from '@/components/QuoteForm';
 import HomeFeaturedProducts from '@/components/HomeFeaturedProducts';
+import RunningCircuitLogo from '@/components/RunningCircuitLogo';
 import { INITIAL_SERVICES, INITIAL_PRODUCTS } from '@/lib/data';
 
 export default function HomePage() {
@@ -142,34 +143,23 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                {/* Center 3D Logo Showcase */}
-                <div className="relative z-10 my-6 flex flex-col items-center justify-center">
+                {/* Center 3D Logo Showcase with Continuous Running Circuit */}
+                <div className="relative z-10 my-4 flex flex-col items-center justify-center">
                   
-                  {/* Glowing Holographic Halo */}
-                  <div className="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/30 via-teal-400/25 to-transparent blur-xl animate-pulse-glow" />
-                    
-                    {/* Metallic Logo Frame */}
-                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-cyan-400/40 group-hover:border-cyan-400/80 group-hover:scale-105 transition-all duration-500 bg-slate-950 p-2 flex items-center justify-center">
-                      <img 
-                        src="/images/nextgen-logo-3d.jpg" 
-                        alt="NextGen IT Solution 3D Emblem" 
-                        className="w-full h-full object-cover rounded-xl transform group-hover:rotate-1 transition-transform duration-500"
-                      />
-                      
-                      {/* Interactive Glass Reflection Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
-                    </div>
+                  {/* Continuous Running Cyber Circuit Logo */}
+                  <div className="transform hover:scale-105 transition-transform duration-500 py-2">
+                    <RunningCircuitLogo size="lg" />
                   </div>
 
-                  {/* Brand Title below Logo */}
-                  <div className="text-center mt-5 space-y-1">
+                  {/* Brand Title below Running Circuit Logo */}
+                  <div className="text-center mt-3 space-y-1">
                     <div className="text-lg font-extrabold text-white tracking-tight flex items-center justify-center gap-1.5">
                       <span>NEXTGEN IT SOLUTION</span>
                       <ShieldCheck className="w-4 h-4 text-teal-400" />
                     </div>
-                    <div className="text-xs text-slate-400 font-mono">
-                      Industrial Network & Surveillance Integrator
+                    <div className="text-xs text-slate-400 font-mono flex items-center justify-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                      <span>Live Circuit Active • Industrial SLA Ready</span>
                     </div>
                   </div>
                 </div>
