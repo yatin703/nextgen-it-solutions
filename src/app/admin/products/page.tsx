@@ -381,7 +381,7 @@ export default function AdminProductsPage() {
                       {prod.isAvailable ? (
                         <>
                           <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                          <span>In Stock</span>
+                          <span>Available</span>
                         </>
                       ) : (
                         <>

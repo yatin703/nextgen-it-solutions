@@ -181,7 +181,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     iconName: 'Clock',
     overview: 'Downtime costs money. Our Annual Maintenance Contracts ensure your computers, printers, network switches, CCTV systems, and servers operate continuously at peak performance with guaranteed response times in Vapi, Silvassa, and Daman industrial corridors.',
     features: [
-      'Guaranteed 2 to 4 hour onsite emergency response SLA',
+      'Guaranteed 6 to 8 hour onsite emergency response SLA',
       'Monthly scheduled preventive maintenance and dust cleaning',
       'Full hardware diagnostic and component replacement assistance',
       'Operating system, antivirus, and software patch management',
@@ -202,7 +202,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     industries: ['All Manufacturing Units', 'Packaging & Paper Mills', 'Offices & Commercial Complexes', 'Logistics Warehouses'],
     faqs: [
-      { question: 'What is the response time for a server or network failure?', answer: 'For critical enterprise clients in Vapi/Silvassa/Daman, our SLA provides emergency onsite engineer dispatch within 2 to 4 hours.' }
+      { question: 'What is the response time for a server or network failure?', answer: 'For critical enterprise clients in Vapi/Silvassa/Daman, our SLA provides emergency onsite engineer dispatch within 6 to 8 hours.' }
     ]
   },
   {
@@ -235,7 +235,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     industries: ['Design & Engineering Units', 'Factory Quality Assurance (QA)', 'Corporate Finance & Management', 'Educational & Research Labs'],
     faqs: [
-      { question: 'Do you offer bulk enterprise pricing for new office setups?', answer: 'Yes! As an authorized B2B technology partner, we provide special commercial project volume pricing for 5 to 500+ machines.' }
+      { question: 'Do you offer bulk enterprise pricing for new office setups?', answer: 'Yes! We provide special commercial project volume pricing for 5 to 50+ machines.' }
     ]
   },
   {
@@ -496,6 +496,247 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     industries: ['Steel, Plastic & Chemical Factories', 'Textile Mills', 'Large Storage Warehouses', 'Educational Campuses'],
     faqs: [
       { question: 'Can the PA system automatically trigger an evacuation alarm during a fire?', answer: 'Yes, our PA systems interface directly with the factory fire alarm panel to instantly override all active music or paging and broadcast pre-recorded emergency evacuation directives.' }
+    ]
+  },
+  {
+    id: 'srv-geo-1',
+    slug: 'cctv-installation-vapi',
+    title: 'Industrial CCTV Camera Installation in Vapi GIDC',
+    category: 'Security',
+    shortDesc: 'Turnkey IP surveillance, 4K night vision cameras, explosion-proof housings, and plant perimeter monitoring across Vapi GIDC Phases 1 to 4 and Morai.',
+    iconName: 'Camera',
+    overview: 'Vapi GIDC manufacturing units, chemical plants, and pharma formulation facilities demand surveillance cameras that endure chemical fumes, moisture, and high operational dust. NextGen IT Solution delivers end-to-end IP CCTV design, NVR storage planning (30-90 days), and cleanroom-compliant installations with rapid 6 to 8 hour onsite SLA support.',
+    features: [
+      'High-definition 4MP, 6MP, and 4K IP Bullet & Dome cameras',
+      'Corrosion-proof 304/316 stainless steel housings for chemical zones',
+      'AI-powered intrusion detection, line crossing, and automatic ANPR vehicle logging',
+      'High-endurance surveillance HDDs with RAID-5 storage redundancy',
+      'Centralized multi-channel NVR with secure remote mobile and multi-screen monitoring',
+      'Rapid 6 to 8 hour onsite engineering response for breakdowns in Vapi GIDC'
+    ],
+    components: [
+      'Hikvision / CP PLUS / Dahua / Honeywell IP Surveillance Cameras',
+      '16 / 32 / 64 Channel Network Video Recorders (NVR)',
+      'Western Digital Purple / Seagate SkyHawk Surveillance HDDs',
+      'Industrial Gigabit PoE Switches & Surge Protectors'
+    ],
+    process: [
+      'Complimentary physical plant security assessment & blind-spot survey',
+      'Optical coverage planning, lens focal length, and storage calculation',
+      'Industrial GI/PVC conduit routing and weatherproof mounting',
+      'NVR network configuration, AI alert parameters, and mobile sync',
+      'Handover with certified layout documentation and user training'
+    ],
+    industries: ['Vapi GIDC Phase 1-4 Chemical Plants', 'Pharmaceutical Formulation & Cleanrooms', 'Packaging & Paper Units', 'Heavy Engineering & Warehousing'],
+    faqs: [
+      { question: 'How quickly can your technician attend to camera issues in Vapi GIDC?', answer: 'For active AMC clients and industrial installations in Vapi GIDC, we offer a dedicated 6 to 8 hour onsite engineer SLA response.' },
+      { question: 'Can the cameras resist corrosion from acid fumes in chemical units?', answer: 'Yes, we supply specialized IP67 and IP68 rated stainless steel or powder-coated weatherproof housings engineered specifically to withstand corrosive chemical fumes and outdoor humidity.' }
+    ]
+  },
+  {
+    id: 'srv-geo-2',
+    slug: 'cat6-cat6a-cabling-vapi',
+    title: 'Industrial CAT6 / CAT6A Structured Cabling in Vapi',
+    category: 'Networking',
+    shortDesc: 'Heavy-duty copper network drops, server rack dressing, patch panel termination, and calibrated Fluke DSX-8000 certification for Vapi factories.',
+    iconName: 'Network',
+    overview: 'Reliable production, PLC machines, and ERP workflows in Vapi GIDC require robust structured cabling that rejects electromagnetic noise from heavy industrial drives. NextGen IT Solution delivers TIA/EIA compliant CAT6 and shielded CAT6A structured data networks, server rack dressing, and calibrated Fluke cable certification.',
+    features: [
+      'Shielded CAT6A (STP/FTP) data cabling immune to heavy motor and inverter EMI',
+      'LSZH (Low Smoke Zero Halogen) fire-retardant cabling for audit compliance',
+      'Wall-mount and floor-standing server rack assembly with clean dressing and labeling',
+      '24/48-port modular patch panel termination with comprehensive port mapping',
+      'Port-by-port Fluke DSX-8000 certification reports provided for ISO and safety audits',
+      'Dedicated 6 to 8 hour onsite troubleshooting SLA across South Gujarat'
+    ],
+    components: [
+      'D-Link / Schneider / CommScope CAT6 & CAT6A 10G Copper Bundles',
+      'Cat6A Shielded RJ45 Keystones & Patch Panels',
+      'Valrack / Netrack 9U to 42U Server Enclosures',
+      'Manageable Gigabit L2/L3 Industrial Switches'
+    ],
+    process: [
+      'Plant pathway assessment and cable run route blueprinting',
+      'BOQ preparation matching exact industrial electrical standards',
+      'Heavy-duty conduit laying, cable pulling, and strain relief',
+      'Rack dressing, patch panel termination, and port indexing',
+      'Calibrated Fluke testing with printed graph reports for plant auditors'
+    ],
+    industries: ['Vapi Phase 1-4 Manufacturing Plants', 'Pharma QC & Cleanrooms', 'Textile & Synthetic Yarn Mills', 'Packaging & Converting Facilities'],
+    faqs: [
+      { question: 'Do you provide formal Fluke test reports with cable installations in Vapi?', answer: 'Yes, every structured cabling project in Vapi is certified using a calibrated Fluke network analyzer, providing complete attenuation, return loss, and wiremap binders ready for statutory audits.' },
+      { question: 'Why should we choose CAT6A over standard CAT6 for our factory?', answer: 'Heavy manufacturing plants in Vapi generate intense electromagnetic noise from motors and VFD drives. CAT6A features superior individual pair shielding and supports 10 Gbps speeds up to 100 meters without packet loss.' }
+    ]
+  },
+  {
+    id: 'srv-geo-3',
+    slug: 'fiber-optic-splicing-vapi',
+    title: 'Optical Fiber Splicing & OTDR Testing in Vapi GIDC',
+    category: 'Networking',
+    shortDesc: 'Single-mode armored fiber laying, precision fusion splicing, LIU termination, and OTDR loss certification for large Vapi industrial campuses.',
+    iconName: 'Zap',
+    overview: 'When campus buildings, administrative blocks, and distant warehouse sheds in Vapi exceed 100 meters, optical fiber is the only enterprise solution. NextGen IT Solution installs single-mode (OS2) and multi-mode (OM3/OM4) armored optical fiber backbones with core-alignment fusion splicing and OTDR db-loss verification.',
+    features: [
+      'Armored optical fiber for direct underground trenching and overhead tray routing',
+      'Core-alignment precision fusion splicing with loss < 0.02 dB per joint',
+      'Light Interface Units (LIU), fiber pigtails, and SC/LC coupler termination',
+      'OTDR (Optical Time-Domain Reflectometer) certification and power meter audits',
+      '10G SFP+ optical transceiver modules and industrial media converters',
+      'Fast 6 to 8 hour emergency fiber cut restoration across Vapi GIDC'
+    ],
+    components: [
+      '6-Core to 48-Core Outdoor Armored Single-Mode Fiber',
+      'Rackmount LIU Enclosures & SC/LC Pigtails',
+      'Fujikura Core-Alignment Fusion Splicers',
+      'Optical Power Meters & Calibrated OTDR Testers'
+    ],
+    process: [
+      'Campus distance calculation and trenching route planning',
+      'Armored fiber pulling with strict tension control to avoid core bending',
+      'Precision cleaving, jointing, and heat-shrink protective sleeve fusion',
+      'Bi-directional OTDR insertion loss verification and trace recording',
+      'Integration with core distribution switches and link aggregation testing'
+    ],
+    industries: ['Multi-Acre Chemical Complexes', 'Paper Mills & Paper Converting', 'Packaging & Corrugation Hubs', 'Steel & Metallurgy Units'],
+    faqs: [
+      { question: 'How do you locate broken or damaged fiber optic lines inside a plant?', answer: 'We use high-precision OTDR (Optical Time-Domain Reflectometer) analyzers that pinpoint the exact distance to the millimeter of any fiber break or micro-bend along the run.' }
+    ]
+  },
+  {
+    id: 'srv-geo-4',
+    slug: 'firewall-security-vapi',
+    title: 'Firewall & Industrial Network Security in Vapi',
+    category: 'Security',
+    shortDesc: 'Sophos & Fortinet Next-Gen Firewalls, IPsec VPN branch interconnects, ransomware shielding, and dual-ISP load balancing for Vapi enterprises.',
+    iconName: 'ShieldCheck',
+    overview: 'Industrial networks in Vapi are frequent targets for ransomware, malicious attachments, and data interception. NextGen IT Solution implements Next-Generation Firewalls (NGFW) with deep packet inspection, application filtering, secure inter-branch IPsec VPNs, and automated dual-WAN ISP failover.',
+    features: [
+      'Deployment of Sophos XGS and Fortinet FortiGate enterprise firewalls',
+      'Site-to-Site IPsec VPN tunnels connecting Vapi factories to Mumbai/Surat HQs',
+      'SSL-VPN for secure remote management, accounting, and ERP access',
+      'Bandwidth shaping, streaming blocks, and unproductive web category filtering',
+      'Dual-WAN load balancing with automated sub-second ISP failover',
+      'Strict VLAN isolation keeping office accounting separate from factory IoT machines'
+    ],
+    components: [
+      'Sophos XGS Series UTM Appliances',
+      'Fortinet FortiGate Security Gateways',
+      'Centralized Endpoint Antivirus & EDR Licences',
+      'Hardware VPN Gateways'
+    ],
+    process: [
+      'Network perimeter vulnerability audit and open port discovery',
+      'Security policy definition segregating ERP, management, and guest traffic',
+      'Zero-downtime firewall deployment and dual-ISP failover configuration',
+      'VPN client rollout with Multi-Factor Authentication (MFA)',
+      'Security posture monitoring and automated weekly executive reports'
+    ],
+    industries: ['Pharma & Chemical Exporters', 'Manufacturing Corporate HQs', 'Logistics & Warehousing Firms', 'Financial & Export Houses'],
+    faqs: [
+      { question: 'Can the firewall combine Jio and Airtel connections to stop internet drops in Vapi?', answer: 'Yes! We configure automated multi-WAN load balancing and failover. When one connection fluctuates or drops, traffic instantly switches to the secondary link without interrupting Tally or ERP sessions.' }
+    ]
+  },
+  {
+    id: 'srv-geo-5',
+    slug: 'server-storage-vapi',
+    title: 'Enterprise Server Deployment & NAS Storage in Vapi',
+    category: 'Infrastructure',
+    shortDesc: 'Dell & HPE rack servers, Synology NAS storage, RAID redundancy, Windows Server AD, and automated cloud backups for Vapi manufacturers.',
+    iconName: 'Server',
+    overview: 'Running multi-user Tally Prime, SAP Business One, or custom manufacturing ERP requires reliable server hardware and bulletproof data storage. NextGen IT Solution delivers enterprise Dell and HPE rackmount servers, Synology NAS data repositories, RAID-10 storage redundancy, and automated daily offsite cloud backups.',
+    features: [
+      'Dell PowerEdge and HPE ProLiant rackmount servers tailored for manufacturing ERP',
+      'Synology and QNAP high-capacity NAS storage for centralized drawing and file archives',
+      'Hardware RAID (RAID 1, 5, 10) configurations ensuring continuous operation during disk failures',
+      'Windows Server Active Directory Domain Services (AD DS) and centralized group policies',
+      'Automated 3-2-1 backup strategy protecting against cryptolocker ransomware',
+      '6 to 8 hour onsite hardware diagnostics and support SLA in Vapi GIDC'
+    ],
+    components: [
+      'Dell PowerEdge Rack Servers (Xeon, ECC DDR5 Memory, Hot-Plug PSUs)',
+      'Synology 4-Bay to 12-Bay Rackmount NAS Systems',
+      'Enterprise SAS and NVMe Solid State Drives',
+      'Veeam Backup & Replication Integration'
+    ],
+    process: [
+      'Current ERP transaction load and storage expansion analysis',
+      'Hardware procurement matching OEM standards with 3-year warranty',
+      'OS installation, RAID configuration, and Active Directory rights setup',
+      'ERP database migration, client connection testing, and backup automation',
+      'Quarterly mock restore drills to verify database integrity'
+    ],
+    industries: ['Continuous Process Manufacturing', 'Pharmaceutical QA/QC Labs', 'Textile Billing & Inventory Hubs', 'Engineering Fabrication Units'],
+    faqs: [
+      { question: 'How do you protect our Tally ERP database from corruption or hardware failure?', answer: 'We implement hardware RAID-10 disk mirroring for instant hardware fault tolerance, combined with automated daily encrypted snapshots mirrored to a local NAS and an immutable offsite cloud repository.' }
+    ]
+  },
+  {
+    id: 'srv-geo-6',
+    slug: 'it-amc-vapi',
+    title: 'Industrial IT AMC & Onsite Support Services in Vapi GIDC',
+    category: 'Support',
+    shortDesc: 'Comprehensive and non-comprehensive Annual Maintenance Contracts with guaranteed 6 to 8 hour onsite response SLA across Vapi industrial areas.',
+    iconName: 'Wrench',
+    overview: 'Factory IT downtime halts billing, stops dispatch docks, and stalls shop-floor production. NextGen IT Solution offers structured IT AMC (Annual Maintenance Contracts) designed for industrial plants across Vapi GIDC. We deliver scheduled preventive checkups, desktop & server maintenance, network optimization, and guaranteed 6 to 8 hour onsite emergency engineer dispatch.',
+    features: [
+      'Guaranteed 6 to 8 hour onsite engineer SLA response for industrial emergencies',
+      'Monthly preventive maintenance checkups: Dust cleaning, thermal paste, and cable hygiene',
+      'Routine operating system patch management, antivirus updates, and malware cleanup',
+      'Server, firewall, NAS, and NVR health monitoring and routine data integrity audits',
+      'Support covering workstations, laptops, network switches, Wi-Fi APs, and printers',
+      'Transparent quarterly service delivery reports and IT asset tracking logs'
+    ],
+    components: [
+      'Dedicated Field Engineers Stationed in Vapi',
+      'Comprehensive and Non-Comprehensive AMC Agreements',
+      'Standby Hardware & Replacement Parts Buffer',
+      'Centralized Helpdesk Ticketing System'
+    ],
+    process: [
+      'Full IT asset discovery and baseline infrastructure audit',
+      'SLA agreement finalization and ticketing protocol orientation',
+      'Monthly scheduled preventive maintenance and physical inspection visits',
+      'Rapid breakdown resolution with guaranteed 6 to 8 hour onsite presence',
+      'Quarterly review meeting with management and infrastructure health reports'
+    ],
+    industries: ['Vapi GIDC Phases 1, 2, 3, 4', 'Morai Industrial Area', 'Chanod & Dungra Manufacturing Units', 'Koparli & Salvav Industrial Hubs'],
+    faqs: [
+      { question: 'What is included in the 6 to 8 hour onsite SLA in Vapi?', answer: 'When an AMC client logs a high-priority incident (such as server failure, switch failure, or plant network outage), a trained hardware engineer reaches your Vapi plant within 6 to 8 hours to troubleshoot and restore connectivity.' },
+      { question: 'Do you offer both Comprehensive and Non-Comprehensive IT AMC options?', answer: 'Yes. Comprehensive AMC includes labor plus replacement of damaged hardware components, while Non-Comprehensive AMC covers all routine maintenance and troubleshooting labor with parts billed at actual cost.' }
+    ]
+  },
+  {
+    id: 'srv-geo-7',
+    slug: 'wifi-networking-vapi',
+    title: 'High-Density Industrial Wi-Fi 6 & Long-Range Wireless in Vapi',
+    category: 'Networking',
+    shortDesc: 'Ubiquiti & Aruba Wi-Fi 6 access points, zero-handoff roaming for barcode scanners, and multi-kilometer Point-to-Point wireless links.',
+    iconName: 'Wifi',
+    overview: 'Sprawling manufacturing bays and warehouses in Vapi GIDC require robust Wi-Fi that penetrates thick concrete and metal sheds without dead zones. NextGen IT Solution engineers high-density Wi-Fi 6 indoor/outdoor networks with zero-handoff roaming for mobile barcode scanners, plus Point-to-Point (P2P) wireless bridges connecting separate plant sheds without trenching.',
+    features: [
+      'Wi-Fi 6 (802.11ax) enterprise indoor and outdoor weatherproof access points',
+      'Seamless zero-handoff roaming for warehouse barcode handhelds and tablets',
+      'Point-to-Point (P2P) wireless bridges linking separate factory sheds up to 5 km away',
+      'Guest Wi-Fi captive portals with isolated bandwidth and mobile OTP verification',
+      'Secure VLAN segmentation keeping guest Wi-Fi strictly isolated from internal ERP',
+      'Centralized cloud management dashboard with real-time signal heat mapping'
+    ],
+    components: [
+      'Ubiquiti UniFi / TP-Link Omada / Aruba Enterprise APs',
+      'Ubiquiti AirMax Long-Range Wireless Dishes & Bridges',
+      'Outdoor Weatherproof IP67 Enclosures & Surge Suppressors'
+    ],
+    process: [
+      'RF site heat-map survey to identify physical signal reflection and dead zones',
+      'AP placement planning ensuring high signal density for warehouse scanners',
+      'Line-of-sight alignment for outdoor Point-to-Point wireless dishes',
+      'SSID creation, WPA3 security hardening, and bandwidth quotas',
+      'Walk-through signal testing across all factory sheds and dispatch bays'
+    ],
+    industries: ['Large Warehouses & Logistics Hubs', 'Multi-shed Manufacturing Campuses', 'Pharmaceutical Cleanrooms', 'Corporate Office Blocks'],
+    faqs: [
+      { question: 'Can handheld barcode scanners roam between factory sheds without disconnecting?', answer: 'Yes! We configure enterprise controller-managed access points with fast 802.11r/k/v roaming protocols, allowing handheld scanners to move freely across the shop floor with zero packet loss.' },
+      { question: 'How do you connect two factory sheds across the road without physical cables?', answer: 'We deploy outdoor Point-to-Point (P2P) wireless bridge antennas that establish a secure, high-speed 1 Gbps wireless connection across distances of up to 5 km with clear line-of-sight.' }
     ]
   }
 ];
@@ -791,7 +1032,7 @@ export const INITIAL_LEADS: Lead[] = [
     email: 'vipul@primepolychem.com',
     location: 'Vapi (Sarigam)',
     service: 'Comprehensive & Non-Comprehensive IT AMC',
-    requirement: 'Annual Maintenance Contract for 45 desktops, 3 servers, 5 network switches, and 16 CCTV cameras with 4-hour SLA.',
+    requirement: 'Annual Maintenance Contract for 45 desktops, 3 servers, 5 network switches, and 16 CCTV cameras with 6-8 hour SLA.',
     status: 'Won',
     notes: '1-Year AMC contract finalized and signed. Handover scheduled for next Monday.',
     createdAt: '2026-08-15T09:00:00.000Z',

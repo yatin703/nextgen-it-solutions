@@ -92,31 +92,16 @@ export default function ProductsPage() {
           ))}
         </div>
 
-        {/* Right Controls: Stock toggle and Search */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-          <button
-            onClick={() => setOnlyInStock(!onlyInStock)}
-            className={`text-xs px-3 py-1.5 rounded-lg border font-medium flex items-center justify-center gap-1.5 transition ${
-              onlyInStock 
-                ? 'bg-emerald-50 border-emerald-300 text-emerald-700' 
-                : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
-            }`}
-          >
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>In Stock Only</span>
-          </button>
-
-          {/* Search Bar */}
-          <div className="relative min-w-[240px]">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder="Search Cisco, Hikvision, Dell..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-300 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
-            />
-          </div>
+        {/* Search Bar */}
+        <div className="relative min-w-[260px]">
+          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <input
+            type="text"
+            placeholder="Search Cisco, Hikvision, Dell..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full bg-slate-50 border border-slate-300 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+          />
         </div>
       </div>
 
@@ -142,7 +127,7 @@ export default function ProductsPage() {
             No hardware products matched your current filters.
           </p>
           <p className="text-slate-500 text-xs max-w-md mx-auto">
-            Need special models or bulk BOQ quotation? Our sales engineers can procure enterprise hardware directly from OEM distribution hubs.
+            Need special models or bulk BOQ quotation? Our sales engineers can procure enterprise hardware directly through authorized distribution channels.
           </p>
           <button
             onClick={() => { setSelectedCategory('All'); setSearchQuery(''); setOnlyInStock(false); }}

@@ -38,7 +38,7 @@ export default function LocationsPage() {
           Industrial IT & CCTV Service Corridors
         </h1>
         <p className="text-base text-slate-600 leading-relaxed">
-          Headquartered in <strong>Vapi GIDC</strong> with active engineering dispatch across South Gujarat and the Union Territories of Dadra & Nagar Haveli and Daman. We guarantee <strong>1 to 4 hour emergency onsite response</strong> for manufacturing plants and commercial enterprises.
+          Headquartered in <strong>Vapi GIDC</strong> with active engineering dispatch across South Gujarat and the Union Territories of Dadra & Nagar Haveli and Daman. We guarantee <strong>6 to 8 hour emergency onsite response</strong> for manufacturing plants and commercial enterprises.
         </p>
       </div>
 

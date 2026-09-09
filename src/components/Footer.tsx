@@ -36,15 +36,15 @@ export default function Footer() {
             <div className="pt-2 text-xs text-slate-300 space-y-1.5">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>Certified Network & Security Engineers</span>
+                <span>Experienced Network & Security Technicians</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>Authorized OEM Hardware Partners</span>
+                <span>Enterprise Hardware Procurement & Integration</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-teal-400 shrink-0" />
-                <span>2 to 4 Hour Onsite SLA in GIDC</span>
+                <span>6 to 8 Hour Onsite Support in GIDC</span>
               </div>
             </div>
           </div>
@@ -88,6 +88,11 @@ export default function Footer() {
               <li>
                 <Link href="/services/industrial-it-infrastructure-projects" className="hover:text-teal-400 transition flex items-center gap-1.5 text-slate-400 hover:translate-x-0.5 duration-150">
                   <ArrowRight className="w-3.5 h-3.5 text-slate-600" /> Turnkey Industrial IT Projects
+                </Link>
+              </li>
+              <li>
+                <Link href="/industries" className="hover:text-teal-400 transition flex items-center gap-1.5 text-teal-400 font-semibold hover:translate-x-0.5 duration-150">
+                  <ArrowRight className="w-3.5 h-3.5 text-teal-400" /> Industry Solutions (Pharma, Chemical, Mfg) →
                 </Link>
               </li>
             </ul>
@@ -153,9 +158,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-800/80 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} NextGen IT Solution. All rights reserved. Enterprise B2B IT & Security.</p>
-          <div className="flex items-center space-x-6">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link href="/about" className="hover:text-slate-300 transition">About</Link>
             <Link href="/services" className="hover:text-slate-300 transition">Services</Link>
+            <Link href="/industries" className="hover:text-slate-300 transition">Industries</Link>
             <Link href="/locations" className="hover:text-slate-300 transition">Locations</Link>
             <Link href="/resources" className="hover:text-slate-300 transition">Guides</Link>
             <Link href="/products" className="hover:text-slate-300 transition">Products</Link>

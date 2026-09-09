@@ -179,14 +179,14 @@ export default function HomeFeaturedProducts() {
                 <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-2 text-xs font-semibold">
                     {activeProduct.isAvailable ? (
-                      <div className="flex items-center gap-1.5 text-emerald-400">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                        <span>In Stock (Vapi / Silvassa Dispatch Ready)</span>
+                      <div className="flex items-center gap-1.5 text-blue-400">
+                        <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                        <span>Available on Project Order</span>
                       </div>
                     ) : (
                       <div className="flex items-center gap-1.5 text-amber-400">
                         <Clock className="w-4 h-4 text-amber-400" />
-                        <span>OEM Factory Dispatch (3-5 Days)</span>
+                        <span>Procured on Demand (3-5 Days)</span>
                       </div>
                     )}
                   </div>

@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "NextGen IT Solution | Enterprise IT & Security Specialist",
-    description: "B2B IT infrastructure, structured cabling, CCTV surveillance, and 2-4 hr SLA AMC support across Vapi, Silvassa, and Daman.",
+    description: "B2B IT infrastructure, structured cabling, CCTV surveillance, and 6-8 hr SLA AMC support across Vapi, Silvassa, and Daman.",
     images: ["/images/nextgen-logo-it-solution-3d.jpg"],
   },
   robots: {

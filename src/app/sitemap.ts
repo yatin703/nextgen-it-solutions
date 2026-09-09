@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { INITIAL_SERVICES } from '@/lib/data';
 import { LOCATIONS_DATA } from '@/lib/locations';
 import { ARTICLES_DATA } from '@/lib/articles';
+import { INDUSTRIES_DATA } from '@/lib/industries';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://nextgenitsolution.com';
 
@@ -18,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/services`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/industries`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -66,12 +73,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic Service Detail Pages (All 15 Specialized Industrial Services)
+  // Dynamic Service Detail Pages (All 22 Specialized Industrial & Geo Services)
   const serviceRoutes: MetadataRoute.Sitemap = INITIAL_SERVICES.map((service) => ({
     url: `${BASE_URL}/services/${service.slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly',
     priority: 0.85,
+  }));
+
+  // Dynamic Industry Vertical Pages (All 5 Specialized Industrial Sectors)
+  const industryRoutes: MetadataRoute.Sitemap = INDUSTRIES_DATA.map((ind) => ({
+    url: `${BASE_URL}/industries/${ind.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly',
+    priority: 0.88,
   }));
 
   // Dynamic Location Landing Pages (All 7 Industrial Corridors)
@@ -90,5 +105,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...locationRoutes, ...serviceRoutes, ...articleRoutes];
+  return [...staticRoutes, ...industryRoutes, ...locationRoutes, ...serviceRoutes, ...articleRoutes];
 }

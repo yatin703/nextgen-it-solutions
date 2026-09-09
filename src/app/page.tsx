@@ -42,7 +42,7 @@ const HOME_FAQS = [
   },
   {
     question: "What is your emergency onsite response SLA for manufacturing units?",
-    answer: "We guarantee a 2 to 4 hour emergency onsite response SLA across all industrial zones in Vapi GIDC, Silvassa, and Daman for AMC contract clients."
+    answer: "We guarantee a 6 to 8 hour emergency onsite response SLA across all industrial zones in Vapi GIDC, Silvassa, and Daman for AMC contract clients."
   }
 ];
 
@@ -77,7 +77,7 @@ export default function HomePage() {
             </div>
 
             <h1 className="text-2xl sm:text-4xl lg:text-[3.25rem] font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-[1.12]">
-              Complete <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-teal-700">IT Infrastructure & Security</span> Solutions for Enterprises
+              Industrial <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-teal-700">IT Infrastructure & Security</span> Solutions in Vapi, Silvassa & Daman
             </h1>
 
             {/* MOBILE-ONLY 3D MACHINE EMBLEM DISPLAY (Zero Text Collision, Centered & Clean) */}
@@ -104,7 +104,7 @@ export default function HomePage() {
 
             {/* Service tags pill bar */}
             <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold text-slate-700">
-              {['Industrial LAN Cabling', 'AI CCTV Surveillance', 'Servers & Storage', 'NextGen Firewalls', 'Wireless APs', '24/7 AMC Support'].map((tag) => (
+              {['Industrial LAN Cabling', 'AI CCTV Surveillance', 'Servers & Storage', 'NextGen Firewalls', 'Wireless APs', 'IT AMC Support'].map((tag) => (
                 <span key={tag} className="px-2.5 py-1 rounded-lg bg-white/90 border border-slate-200 shadow-2xs text-slate-700 font-medium">
                   ✓ {tag}
                 </span>
@@ -112,7 +112,7 @@ export default function HomePage() {
             </div>
 
             <p className="text-xs sm:text-base text-slate-600 leading-relaxed max-w-2xl">
-              NextGen IT Solution powers manufacturing plants, corporate offices, and institutions across <strong>Vapi, Silvassa, and Daman</strong> with mission-critical cabling, enterprise surveillance, robust servers, and SLA-backed 24/7 AMC support.
+              NextGen IT Solution powers manufacturing plants, corporate offices, and institutions across <strong>Vapi GIDC, Silvassa, Daman, and South Gujarat</strong> with mission-critical cabling, enterprise surveillance, robust servers, and SLA-backed maintenance support.
             </p>
 
             {/* CTA Buttons */}
@@ -145,20 +145,20 @@ export default function HomePage() {
             {/* Grounded credibility stats */}
             <div className="pt-6 border-t border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
               <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-slate-900">150+</div>
-                <div className="text-[11px] text-slate-500 font-medium">Plant Deployments</div>
+                <div className="text-2xl font-extrabold text-slate-900">50+</div>
+                <div className="text-[11px] text-slate-500 font-medium">Industrial Projects</div>
               </div>
               <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-teal-700">1-2 Hrs</div>
-                <div className="text-[11px] text-slate-500 font-medium">Local Vapi Dispatch</div>
+                <div className="text-2xl font-extrabold text-teal-700">6-8 Hrs</div>
+                <div className="text-[11px] text-slate-500 font-medium">Onsite Support SLA</div>
               </div>
               <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
                 <div className="text-2xl font-extrabold text-blue-700">100%</div>
                 <div className="text-[11px] text-slate-500 font-medium">Audit Compliant</div>
               </div>
               <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-teal-700">24/7</div>
-                <div className="text-[11px] text-slate-500 font-medium">Emergency AMC SLA</div>
+                <div className="text-2xl font-extrabold text-teal-700">5+ Years</div>
+                <div className="text-[11px] text-slate-500 font-medium">Field Experience</div>
               </div>
             </div>
 
@@ -360,7 +360,7 @@ export default function HomePage() {
             Our 4-Step Project Execution Roadmap
           </h2>
           <p className="text-sm text-slate-600">
-            A systematic engineering process ensuring projects are delivered on time, within budget, and compliant with OEM standards.
+            A systematic engineering process ensuring projects are delivered on time, within budget, and compliant with international industry standards.
           </p>
         </div>
 
@@ -459,7 +459,7 @@ export default function HomePage() {
               Regional Industrial Corridors We Serve
             </h2>
             <p className="text-sm text-slate-600 max-w-2xl">
-              Dedicated field engineers stationed across South Gujarat and Union Territories providing guaranteed 1-4 hour emergency response.
+              Dedicated field engineers stationed across South Gujarat and Union Territories providing guaranteed 6-8 hour emergency response.
             </p>
           </div>
           <Link
@@ -582,7 +582,7 @@ export default function HomePage() {
               Prevent Costly Factory Downtime with NextGen IT AMC
             </h2>
             <p className="text-sm text-slate-200 leading-relaxed">
-              We manage your complete IT ecosystem—computers, network switches, firewall gateways, CCTV storage, and servers. Our local presence guarantees a <strong>2 to 4 hour emergency onsite response SLA</strong> in Vapi GIDC, Silvassa, and Daman.
+              We manage your complete IT ecosystem—computers, network switches, firewall gateways, CCTV storage, and servers. Our local presence guarantees a <strong>6 to 8 hour onsite response SLA</strong> in Vapi GIDC, Silvassa, and Daman.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-slate-200">
               <div className="flex items-center gap-2">

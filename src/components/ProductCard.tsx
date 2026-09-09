@@ -56,9 +56,9 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
         {product.isAvailable ? (
-          <div className="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>In Stock</span>
+          <div className="flex items-center gap-1.5 text-xs text-blue-700 font-semibold">
+            <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+            <span>Available on Order</span>
           </div>
         ) : (
           <div className="flex items-center gap-1.5 text-xs text-amber-700 font-semibold">

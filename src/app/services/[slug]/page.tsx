@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const title = `${service.title} in Vapi, Silvassa & Daman`;
-  const description = `${service.shortDesc} SLA-backed 2-4 hr local onsite support for industrial plants across Vapi GIDC, Silvassa, Daman, Umbergaon & Sarigam.`;
+  const description = `${service.shortDesc} SLA-backed 6-8 hr local onsite support for industrial plants across Vapi GIDC, Silvassa, Daman, Umbergaon & Sarigam.`;
 
   return {
     title,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${service.title} GIDC`,
       `${service.category} contractor Vapi`,
       'industrial IT solutions South Gujarat',
-      '2-4 hour onsite IT support',
+      '6-8 hour onsite IT support',
       ...service.features.slice(0, 3),
     ],
     alternates: {
@@ -231,7 +231,7 @@ export default function ServiceDetailPage({ params }: Props) {
           <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 text-white rounded-2xl p-6 space-y-4 border border-slate-700 shadow-md">
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-teal-400" />
-              <h2 className="text-base sm:text-lg font-bold text-white">Local Industrial Coverage & 2-4 Hr Onsite SLA</h2>
+              <h2 className="text-base sm:text-lg font-bold text-white">Local Industrial Coverage & 6-8 Hr Onsite SLA</h2>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Our certified engineering teams are stationed locally to provide rapid site surveys, deployment, and emergency hardware replacement across:

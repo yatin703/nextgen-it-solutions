@@ -39,7 +39,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     districtState: 'Valsad District, Gujarat',
     pincode: '396195',
     coordinates: { lat: 20.3712, lng: 72.9106 },
-    responseTime: '1 to 2 Hours (Local Engineering HQ Dispatch)',
+    responseTime: '6 to 8 Hours (Onsite Support SLA)',
     overview: 'As South Gujarat’s largest manufacturing hub with over 1,500 operational industrial units across 4 GIDC phases, Vapi factories demand zero network downtime, rugged CCTV surveillance, and enterprise data security. NextGen IT Solution maintains our central operations and engineering spares warehouse in Vapi, ensuring guaranteed rapid emergency onsite response.',
     industrialEstates: [
       'GIDC Phase 1 (Engineering & Plastics)',
@@ -69,7 +69,7 @@ export const LOCATIONS_DATA: LocationData[] = [
       },
       {
         title: 'Industrial IT AMC & Onsite SLA Support',
-        description: 'Comprehensive IT maintenance covering production line PCs, ERP servers, switches, and CCTV with 1-2 hour emergency onsite response in Vapi.',
+        description: 'Comprehensive IT maintenance covering production line PCs, ERP servers, switches, and CCTV with 6 to 8 hour emergency onsite response in Vapi.',
         slug: 'amc-it-support'
       },
       {
@@ -87,7 +87,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     faqs: [
       {
         question: 'How fast can an IT technician reach our factory in Vapi GIDC?',
-        answer: 'Because NextGen IT Solution is headquartered in Vapi, our certified field engineers can be onsite at your factory in GIDC Phase 1, 2, 3, or 4 within 1 to 2 hours for critical emergencies.'
+        answer: 'Because NextGen IT Solution is headquartered in Vapi, our certified field engineers can be onsite at your factory in GIDC Phase 1, 2, 3, or 4 within 6 to 8 hours for critical emergencies.'
       },
       {
         question: 'Do you provide cable testing reports for ISO and GMP audits in Vapi?',
@@ -107,7 +107,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     districtState: 'Dadra and Nagar Haveli, UT',
     pincode: '396230',
     coordinates: { lat: 20.2763, lng: 73.0083 },
-    responseTime: '2 to 3 Hours Guaranteed SLA',
+    responseTime: '6 to 8 Hours (Onsite Support SLA)',
     overview: 'Silvassa hosts heavy industrial manufacturing, massive textile and yarn mills, consumer goods plants, and plastic manufacturing across sprawling multi-acre campuses. NextGen IT Solution provides high-capacity campus-wide fiber networks, long-range wireless links, PTZ yard cameras, and SLA-backed IT AMC support across Piparia, Masat, Sayli, and Amli.',
     industrialEstates: [
       'Piparia Industrial Estate',
@@ -170,7 +170,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     districtState: 'Daman and Diu, UT',
     pincode: '396210',
     coordinates: { lat: 20.3974, lng: 72.8328 },
-    responseTime: '2 to 3 Hours Guaranteed SLA',
+    responseTime: '6 to 8 Hours (Onsite Support SLA)',
     overview: 'Daman’s coastal environment presents unique challenges for IT infrastructure: saline air and high humidity accelerate corrosion on unshielded electronic components and outdoor camera housings. NextGen IT Solution delivers corrosion-resistant weatherproof CCTV cameras, IP66-rated outdoor enclosures, armored fiber backbones, and enterprise LAN networks across Somnath, Kachigam, Dabhel, and Ringanwada.',
     industrialEstates: [
       'Somnath Industrial Area',
@@ -216,7 +216,7 @@ export const LOCATIONS_DATA: LocationData[] = [
       },
       {
         question: 'How fast can an engineer reach Somnath or Kachigam in Daman?',
-        answer: 'Our technicians reach Daman industrial areas (Somnath, Kachigam, Dabhel) within 2 to 3 hours from our Vapi dispatch center.'
+        answer: 'Our technicians reach Daman industrial areas (Somnath, Kachigam, Dabhel) within 6 to 8 hours from our Vapi dispatch center.'
       },
       {
         question: 'Do you provide AMC for existing CCTV and network equipment in Daman?',
@@ -232,7 +232,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     districtState: 'Valsad District, Gujarat',
     pincode: '396155',
     coordinates: { lat: 20.2922, lng: 72.8423 },
-    responseTime: '2 to 3 Hours Onsite SLA',
+    responseTime: '6 to 8 Hours (Onsite Support SLA)',
     overview: 'Sarigam GIDC is a rapidly expanding chemical, dye, paper, and heavy manufacturing zone situated right on the Gujarat-Maharashtra border. Industrial plants in Sarigam require explosion-proof and corrosion-resistant surveillance, high-speed fiber backbones, and reliable IT AMC support to eliminate production downtime.',
     industrialEstates: [
       'Sarigam GIDC Main Industrial Estate',
@@ -283,7 +283,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     districtState: 'Valsad District, Gujarat',
     pincode: '396170',
     coordinates: { lat: 20.1887, lng: 72.7533 },
-    responseTime: '2 to 3 Hours Onsite SLA',
+    responseTime: '6 to 8 Hours (Onsite Support SLA)',
     overview: 'Umbergaon (Umargam) GIDC is home to major textile mills, packaging units, and manufacturing plants located at the southern tip of Gujarat. NextGen IT Solution delivers enterprise IT infrastructure, structured LAN cabling, NVR surveillance, and responsive IT AMC support to ensure round-the-clock plant operations.',
     industrialEstates: [
       'Umargam GIDC Main Industrial Zone',
@@ -318,7 +318,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     faqs: [
       {
         question: 'Do you provide onsite IT support in Umbergaon GIDC and Solsumba?',
-        answer: 'Yes, our engineering team regularly services Umargam GIDC, Solsumba, and surrounding industrial belts with 2 to 3 hour onsite response.'
+        answer: 'Yes, our engineering team regularly services Umargam GIDC, Solsumba, and surrounding industrial belts with 6 to 8 hour onsite response.'
       },
       {
         question: 'Can you assist with setting up our new factory IT infrastructure in Umargam?',
@@ -334,7 +334,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     districtState: 'Valsad District, Gujarat',
     pincode: '396105',
     coordinates: { lat: 20.2796, lng: 72.8797 },
-    responseTime: '1 to 2 Hours Emergency Dispatch',
+    responseTime: '6 to 8 Hours (Onsite Support SLA)',
     overview: 'Bhilad sits prominently along National Highway 48, making it a critical junction for warehousing, transport logistics, paper mills, and manufacturing plants. NextGen IT Solution delivers warehouse-wide Wi-Fi, long-range yard surveillance, gate barcode integration, and rapid SLA-backed IT maintenance.',
     industrialEstates: [
       'Bhilad GIDC & Industrial Area',
@@ -369,7 +369,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     faqs: [
       {
         question: 'How quickly can your engineers reach Bhilad in case of network breakdown?',
-        answer: 'Located just minutes from our Vapi center along NH48, our technicians can reach Bhilad industrial units within 1 to 2 hours.'
+        answer: 'Located just minutes from our Vapi center along NH48, our technicians can reach Bhilad industrial units within 6 to 8 hours.'
       },
       {
         question: 'Can you integrate CCTV cameras with our warehouse weighbridge software?',
@@ -385,7 +385,7 @@ export const LOCATIONS_DATA: LocationData[] = [
     districtState: 'Valsad District, Gujarat',
     pincode: '396001',
     coordinates: { lat: 20.5992, lng: 72.9342 },
-    responseTime: '2 to 4 Hours Guaranteed SLA',
+    responseTime: '6 to 8 Hours (Onsite Support SLA)',
     overview: 'Valsad is the administrative and commercial heart of the district, featuring the busy Gundlav GIDC, chemical processing plants in Atul, and numerous commercial corporate offices. NextGen IT Solution provides high-performance server solutions, multi-point CCTV monitoring, biometric time-attendance, and comprehensive IT AMC services.',
     industrialEstates: [
       'Gundlav GIDC Industrial Estate',

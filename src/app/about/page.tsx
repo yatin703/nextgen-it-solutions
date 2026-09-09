@@ -5,14 +5,14 @@ import { Shield, CheckCircle2, Award, Users, MapPin, ArrowRight } from 'lucide-r
 import { BreadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'About Us | 10+ Years Industrial IT Authority in Vapi, Silvassa, Daman',
+  title: 'About Us | 5+ Years Industrial IT Experience in Vapi, Silvassa, Daman',
   description: 'NextGen IT Solution is South Gujarat and UT’s trusted turnkey IT infrastructure partner, empowering manufacturing plants, pharma units, and corporate offices with certified IT solutions.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
     title: 'About NextGen IT Solution | Industrial IT Infrastructure Specialist',
-    description: '10+ years of certified IT engineering, local spares warehousing, and 2-4 hr SLA support across Vapi, Silvassa, and Daman.',
+    description: '5+ years of dedicated IT engineering, local spares warehousing, and 6-8 hr SLA support across Vapi, Silvassa, and Daman.',
     url: '/about',
   },
 };
@@ -69,7 +69,7 @@ export default function AboutPage() {
           </div>
           <h3 className="text-xl font-bold text-slate-900">Client-Centric SLAs</h3>
           <p className="text-sm text-slate-600 leading-relaxed">
-            We operate with strict Service Level Agreements. When critical systems like weighbridge computers or production servers encounter issues, an engineer arrives onsite within 2 to 4 hours.
+            We operate with strict Service Level Agreements. When critical systems like weighbridge computers or production servers encounter issues, an engineer arrives onsite within 6 to 8 hours.
           </p>
         </div>
       </div>

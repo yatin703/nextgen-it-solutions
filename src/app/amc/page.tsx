@@ -6,15 +6,15 @@ import QuoteForm from '@/components/QuoteForm';
 import { BreadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Industrial IT AMC & Onsite SLA Support (2-4 Hrs) | Vapi, Silvassa, Daman',
-  description: 'Comprehensive & non-comprehensive Annual Maintenance Contracts (AMC) for manufacturing plants. Guaranteed 2-4 hr emergency onsite response for servers, LAN networks, CCTV, and computers.',
+  title: 'Industrial IT AMC & Onsite SLA Support (6-8 Hrs) | Vapi, Silvassa, Daman',
+  description: 'Comprehensive & non-comprehensive Annual Maintenance Contracts (AMC) for manufacturing plants. Guaranteed 6-8 hr onsite response for servers, LAN networks, CCTV, and computers.',
   keywords: [
     'IT AMC Vapi GIDC',
     'computer AMC Silvassa',
     'industrial IT maintenance Daman',
     'server AMC contract Gujarat',
     'CCTV AMC services Vapi',
-    '2-4 hour onsite SLA IT support'
+    '6-8 hour onsite SLA IT support'
   ],
   alternates: {
     canonical: '/amc',
@@ -46,7 +46,7 @@ export default function AMCPage() {
           Industrial IT AMC & Onsite SLA Support
         </h1>
         <p className="text-base text-slate-600 leading-relaxed">
-          Ensure zero downtime for your critical production computers, ERP servers, network switches, and CCTV cameras. NextGen IT Solution provides customized Annual Maintenance Contracts with guaranteed <strong>2 to 4 hour emergency onsite response</strong> in Vapi GIDC, Silvassa, and Daman.
+          Ensure zero downtime for your critical production computers, ERP servers, network switches, and CCTV cameras. NextGen IT Solution provides customized Annual Maintenance Contracts with guaranteed <strong>6 to 8 hour onsite response</strong> in Vapi GIDC, Silvassa, and Daman.
         </p>
       </div>
 

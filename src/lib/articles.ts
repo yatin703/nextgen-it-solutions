@@ -72,7 +72,7 @@ export const ARTICLES_DATA: Article[] = [
       {
         heading: 'Why Local Onsite Support Matters in Vapi & Silvassa',
         paragraphs: [
-          'When a CCTV camera covering an active dispatch dock or raw material storage goes dark, waiting 48 hours for a technician from Mumbai or Surat is unacceptable. NextGen IT Solution maintains locally stationed engineers in Vapi GIDC and Silvassa with replacement cameras and PoE switches in stock for same-day resolution.'
+          'When a CCTV camera covering an active dispatch dock or raw material storage goes dark, waiting 48 hours for a technician from Mumbai or Surat is unacceptable. NextGen IT Solution maintains locally stationed engineers in Vapi GIDC and Silvassa with standby replacement cameras and PoE switches for prompt resolution.'
         ]
       }
     ],
@@ -185,7 +185,7 @@ export const ARTICLES_DATA: Article[] = [
           '5. UPS Battery & Runtime Testing: Periodically testing online UPS batteries under load to ensure server shutdown routines function during GIDC power cuts.',
           '6. OS Patch Management: Applying critical Windows security updates during scheduled weekend maintenance windows.',
           '7. CCTV Health & HDD SMART Check: Verifying that all NVR hard drives are spinning error-free and video footage retention days are compliant.',
-          '8. Guaranteed Emergency Response SLA: Legally contracted 2 to 4 hour emergency arrival guarantee with standby replacement hardware.'
+          '8. Guaranteed Emergency Response SLA: Legally contracted 6 to 8 hour arrival guarantee with standby replacement hardware.'
         ]
       },
       {
@@ -201,7 +201,7 @@ export const ARTICLES_DATA: Article[] = [
     faqs: [
       {
         question: 'What is NextGen IT’s emergency onsite response time for AMC clients?',
-        answer: 'Our SLA guarantees an onsite technician arrival within 1 to 2 hours in Vapi GIDC, and 2 to 4 hours in Silvassa, Daman, Sarigam, and Umargam.'
+        answer: 'Our SLA guarantees an onsite technician arrival within 6 to 8 hours in Vapi GIDC, in Silvassa, Daman, Sarigam, and Umargam.'
       },
       {
         question: 'Do you inspect existing hardware before signing an AMC contract?',

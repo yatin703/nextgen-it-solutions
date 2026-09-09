@@ -181,6 +181,9 @@ export default function Navbar() {
             <Link href="/products" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
               Products
             </Link>
+            <Link href="/industries" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
+              Industries
+            </Link>
             <Link href="/amc" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
               AMC Contracts
             </Link>
@@ -251,6 +254,13 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
           >
             Products & Hardware
+          </Link>
+          <Link 
+            href="/industries" 
+            className="block py-2.5 text-base font-semibold text-slate-800 border-b border-slate-100 hover:text-blue-600"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Industry Verticals (Pharma, Chemical, Textile, Mfg)
           </Link>
           <Link 
             href="/amc" 
