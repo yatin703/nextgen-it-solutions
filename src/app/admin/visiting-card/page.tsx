@@ -515,20 +515,33 @@ export default function AdminVisitingCardPage() {
                 Front Side (3.5" × 2.0")
               </span>
               <div className="w-full aspect-[1.75/1] bg-white border border-slate-300 rounded-xl p-3.5 sm:p-4 flex flex-col justify-between shadow-md relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-teal-500 to-cyan-400"></div>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-teal-500 to-cyan-400 z-10"></div>
+
+                {/* Round Background Light Watermark Logo */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 sm:w-32 sm:h-32 rounded-full opacity-[0.09] pointer-events-none overflow-hidden select-none flex items-center justify-center z-0">
+                  <img 
+                    src="/images/nextgen-logo-it-solution-3d.jpg" 
+                    alt="" 
+                    className="w-full h-full object-cover rounded-full filter contrast-125" 
+                  />
+                </div>
 
                 {/* Header */}
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between relative z-10">
                   <div>
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-5 h-5 rounded bg-gradient-to-tr from-blue-600 to-teal-500 flex items-center justify-center text-white font-extrabold text-[10px]">
-                        {config.companyName ? config.companyName.charAt(0) : 'N'}
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden shadow-sm border border-blue-200/80 bg-white flex items-center justify-center shrink-0">
+                        <img 
+                          src="/images/nextgen-logo-it-solution-3d.jpg" 
+                          alt="NextGen Logo" 
+                          className="w-full h-full object-cover rounded-full" 
+                        />
                       </div>
                       <span className="font-extrabold text-slate-900 text-xs sm:text-sm tracking-tight">
                         {config.companyName.split(' ')[0]} <span className="text-blue-600">{config.companyName.split(' ').slice(1).join(' ')}</span>
                       </span>
                     </div>
-                    <span className="text-[7px] sm:text-[7.5px] font-semibold text-slate-500 block uppercase tracking-wider mt-0.5">
+                    <span className="text-[7px] sm:text-[7.5px] font-semibold text-slate-500 block uppercase tracking-wider mt-0.5 pl-7.5 sm:pl-9">
                       {config.subtitle}
                     </span>
                   </div>
@@ -538,7 +551,7 @@ export default function AdminVisitingCardPage() {
                 </div>
 
                 {/* 3 Partner Names Grid */}
-                <div className="grid grid-cols-3 gap-1 my-auto pt-1 pb-1 border-y border-slate-100 text-center">
+                <div className="grid grid-cols-3 gap-1 my-auto pt-1 pb-1 border-y border-slate-100 text-center relative z-10">
                   {config.partners.slice(0, 3).map((p, idx) => (
                     <div key={idx}>
                       <div className="font-extrabold text-slate-900 text-[8.5px] sm:text-[9.5px] leading-tight truncate">
@@ -552,7 +565,7 @@ export default function AdminVisitingCardPage() {
                 </div>
 
                 {/* Contact Footer */}
-                <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-[6.5px] sm:text-[7px] text-slate-600 font-medium">
+                <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-[6.5px] sm:text-[7px] text-slate-600 font-medium relative z-10">
                   <div className="flex items-center gap-1 truncate">
                     <span className="text-blue-600 font-bold">📞</span>
                     <span className="font-bold text-slate-900 truncate">{config.primaryPhone}</span>
@@ -579,15 +592,33 @@ export default function AdminVisitingCardPage() {
                 Back Side (Tech Midnight)
               </span>
               <div className="w-full aspect-[1.75/1] bg-slate-900 text-white border border-slate-800 rounded-xl p-3.5 sm:p-4 flex flex-col justify-between shadow-md relative overflow-hidden">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-1">
-                  <span className="text-[8px] sm:text-[8.5px] font-extrabold tracking-wider text-teal-400 uppercase truncate">
-                    {config.backCapabilitiesTitle}
-                  </span>
+                {/* Round Background Light Watermark Logo (Back side) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full opacity-[0.06] pointer-events-none overflow-hidden select-none flex items-center justify-center z-0">
+                  <img 
+                    src="/images/nextgen-logo-it-solution-3d.jpg" 
+                    alt="" 
+                    className="w-full h-full object-cover rounded-full filter contrast-150 invert brightness-125" 
+                  />
+                </div>
+
+                <div className="flex items-center justify-between border-b border-slate-800 pb-1 relative z-10">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-3.5 h-3.5 rounded-full overflow-hidden border border-teal-500/40 shrink-0">
+                      <img 
+                        src="/images/nextgen-logo-it-solution-3d.jpg" 
+                        alt="" 
+                        className="w-full h-full object-cover rounded-full" 
+                      />
+                    </div>
+                    <span className="text-[8px] sm:text-[8.5px] font-extrabold tracking-wider text-teal-400 uppercase truncate">
+                      {config.backCapabilitiesTitle}
+                    </span>
+                  </div>
                   <span className="text-[6.5px] text-slate-400 font-medium">{config.backSlaBadge}</span>
                 </div>
 
                 {/* Services List */}
-                <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-[6.5px] sm:text-[7px] text-slate-300 my-auto">
+                <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-[6.5px] sm:text-[7px] text-slate-300 my-auto relative z-10">
                   {config.services.slice(0, 6).map((srv, idx) => (
                     <div key={idx} className="flex items-center gap-1 truncate">
                       <span className="text-teal-400 font-bold">✓</span>
@@ -596,7 +627,7 @@ export default function AdminVisitingCardPage() {
                   ))}
                 </div>
 
-                <div className="pt-1 border-t border-slate-800/80 flex items-center justify-between text-[6.5px] text-slate-400">
+                <div className="pt-1 border-t border-slate-800/80 flex items-center justify-between text-[6.5px] text-slate-400 relative z-10">
                   <span className="truncate"><strong>Regions:</strong> {config.regionalHubs}</span>
                   <span className="text-teal-300 font-bold shrink-0">{config.qualityStamp}</span>
                 </div>
