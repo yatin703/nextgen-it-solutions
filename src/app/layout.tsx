@@ -51,6 +51,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
   openGraph: {
     title: "NextGen IT Solution | Industrial IT Infrastructure & Security",
     description: "Mission-critical IT cabling, enterprise CCTV, server infrastructure, and 24/7 AMC support for factories across Vapi, Silvassa, and Daman.",
