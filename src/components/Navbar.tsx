@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16 sm:h-[4.25rem]">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-xl overflow-hidden shadow-md group-hover:scale-105 group-hover:shadow-blue-500/20 transition-all border border-slate-200/80 bg-slate-950 flex items-center justify-center p-0.5 shrink-0">
+            <div className="w-12 h-12 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 group-hover:shadow-cyan-500/25 transition-all border border-blue-200/80 bg-gradient-to-tr from-blue-50 via-white to-cyan-50 flex items-center justify-center p-0.5 shrink-0">
               <img 
                 src="/images/nextgen-logo-it-solution-3d.jpg" 
                 alt="NextGen IT Solution Logo" 

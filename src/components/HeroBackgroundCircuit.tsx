@@ -25,11 +25,6 @@ export default function HeroBackgroundCircuit({ className = '' }: HeroBackground
           className="w-full h-full"
         >
           <defs>
-            {/* Circular Path for Rotating Text */}
-            <path
-              id="heroBgTextPath"
-              d="M 400, 400 m -320, 0 a 320,320 0 1,1 640,0 a 320,320 0 1,1 -640,0"
-            />
             {/* Linear gradients for subtle circuit traces */}
             <linearGradient id="traceGradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#2563eb" stopOpacity="0.5" />
@@ -107,28 +102,16 @@ export default function HeroBackgroundCircuit({ className = '' }: HeroBackground
             })}
           </g>
 
-          {/* 4. Circular Rotating Text: "NEXTGEN IT SOLUTION" around circle */}
-          <g className="animate-spin-veryslow origin-center">
-            {/* Guide circle for text */}
-            <circle 
-              cx="400" 
-              cy="400" 
-              r="320" 
-              stroke="#0d9488" 
-              strokeWidth="1" 
-              strokeDasharray="4 8" 
-              strokeOpacity="0.25" 
-            />
-            
-            <text 
-              className="fill-blue-900 font-extrabold uppercase select-none"
-              style={{ fontSize: '11px', letterSpacing: '0.24em', opacity: 0.8 }}
-            >
-              <textPath href="#heroBgTextPath" startOffset="0%">
-                ★ NEXTGEN IT SOLUTION ★ INDUSTRIAL IT INFRASTRUCTURE ★ ENTERPRISE SURVEILLANCE & SECURITY ★ 24/7 AMC SUPPORT ★
-              </textPath>
-            </text>
-          </g>
+          {/* 4. Fine Concentric Track Ring */}
+          <circle 
+            cx="400" 
+            cy="400" 
+            r="320" 
+            stroke="#0d9488" 
+            strokeWidth="1" 
+            strokeDasharray="4 8" 
+            strokeOpacity="0.25" 
+          />
 
           {/* 5. Middle Reverse Rotating Radar Ring (Counter-Clockwise) */}
           <g className="animate-circuit-reverse origin-center">

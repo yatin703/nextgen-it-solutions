@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Col 1: Company Profile */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl overflow-hidden shadow-md border border-slate-700 bg-slate-950 flex items-center justify-center p-0.5 shrink-0">
+              <div className="w-12 h-12 rounded-xl overflow-hidden shadow-md border border-cyan-500/40 bg-slate-950 flex items-center justify-center p-0.5 shrink-0 shadow-[0_0_12px_rgba(6,182,212,0.2)]">
                 <img 
                   src="/images/nextgen-logo-it-solution-3d.jpg" 
                   alt="NextGen IT Solution Logo" 

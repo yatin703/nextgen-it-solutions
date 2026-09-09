@@ -218,3 +218,69 @@ body {
   animation: spinVerySlow 26s linear infinite;
   transform-origin: center;
 }
+
+/* ─── LIVE INDUSTRIAL MACHINE ANIMATIONS ─── */
+@keyframes gearRotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gearRotateCounter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes machineCorePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 16px rgba(6, 182, 212, 0.45)) drop-shadow(0 0 24px rgba(234, 179, 8, 0.25));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 32px rgba(6, 182, 212, 0.85)) drop-shadow(0 0 45px rgba(234, 179, 8, 0.5));
+    transform: scale(1.015);
+  }
+}
+
+@keyframes specularScan {
+  0% { transform: rotate(0deg); opacity: 0.25; }
+  50% { opacity: 0.8; }
+  100% { transform: rotate(360deg); opacity: 0.25; }
+}
+
+.animate-gear-cw {
+  animation: gearRotateClockwise 22s linear infinite;
+  transform-origin: center;
+}
+
+.animate-gear-ccw {
+  animation: gearRotateCounter 16s linear infinite;
+  transform-origin: center;
+}
+
+.animate-gear-fast {
+  animation: gearRotateClockwise 9s linear infinite;
+  transform-origin: center;
+}
+
+.animate-machine-core-pulse {
+  animation: machineCorePulse 3.5s ease-in-out infinite;
+}
+
+.animate-specular-scan {
+  animation: specularScan 7s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes gearRotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-gear-360 {
+  animation: gearRotate360 18s linear infinite;
+  transform-origin: 200px 200px;
+}

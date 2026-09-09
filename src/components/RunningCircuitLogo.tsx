@@ -3,7 +3,7 @@
 import React from 'react';
 
 interface RunningCircuitLogoProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'hero';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'hero' | 'watermark';
   className?: string;
 }
 
@@ -17,7 +17,8 @@ export default function RunningCircuitLogo({
     md: 'w-[280px] h-[280px]',
     lg: 'w-[360px] h-[360px]',
     xl: 'w-[440px] h-[440px]',
-    hero: 'w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] xl:w-[580px] xl:h-[580px]'
+    hero: 'w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] xl:w-[580px] xl:h-[580px]',
+    watermark: 'w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] md:w-[460px] md:h-[460px] lg:w-[500px] lg:h-[500px] xl:w-[540px] xl:h-[540px]'
   }[size];
 
   const logoSizeClasses = {
@@ -25,7 +26,8 @@ export default function RunningCircuitLogo({
     md: 'w-28 h-28',
     lg: 'w-36 h-36',
     xl: 'w-44 h-44',
-    hero: 'w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 xl:w-52 xl:h-52'
+    hero: 'w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 xl:w-52 xl:h-52',
+    watermark: 'w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40'
   }[size];
 
   return (
@@ -43,11 +45,6 @@ export default function RunningCircuitLogo({
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Circular Path for Rotating Brand Text */}
-          <path
-            id="unifiedRunningCircuitTextPath"
-            d="M 300, 300 m -198, 0 a 198,198 0 1,1 396,0 a 198,198 0 1,1 -396,0"
-          />
           {/* Subtle PCB Trace Gradients */}
           <linearGradient id="traceGradBlueUnified" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#2563eb" stopOpacity="0.5" />
@@ -141,32 +138,16 @@ export default function RunningCircuitLogo({
           <circle cx="46" cy="280" r="3" fill="#0d9488" />
         </g>
 
-        {/* 4. Circular Rotating Brand Name Text: "NEXTGEN IT SOLUTION" around circle */}
-        <g className="animate-spin-veryslow origin-center">
-          {/* Guide Dashed Circle */}
-          <circle 
-            cx="300" 
-            cy="300" 
-            r="198" 
-            stroke="#93c5fd" 
-            strokeWidth="1" 
-            strokeDasharray="3 5" 
-            strokeOpacity="0.4" 
-          />
-          
-          <text 
-            className="fill-blue-900 font-extrabold uppercase select-none"
-            style={{ 
-              fontSize: '10.5px', 
-              letterSpacing: '0.22em', 
-              fontWeight: 800 
-            }}
-          >
-            <textPath href="#unifiedRunningCircuitTextPath" startOffset="0%">
-              ★ NEXTGEN IT SOLUTION ★ INDUSTRIAL IT INFRASTRUCTURE ★ ENTERPRISE SURVEILLANCE & SECURITY ★ 24/7 AMC SUPPORT ★
-            </textPath>
-          </text>
-        </g>
+        {/* 4. Fine Concentric Track Ring */}
+        <circle 
+          cx="300" 
+          cy="300" 
+          r="198" 
+          stroke="#93c5fd" 
+          strokeWidth="1" 
+          strokeDasharray="4 8" 
+          strokeOpacity="0.35" 
+        />
 
         {/* 5. Middle Reverse Rotating Radar Ring (Counter-Clockwise) */}
         <g className="animate-circuit-reverse origin-center">
