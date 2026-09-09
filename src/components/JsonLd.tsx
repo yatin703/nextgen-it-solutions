@@ -69,11 +69,20 @@ export function LocalBusinessSchema() {
       },
       {
         '@type': 'AdministrativeArea',
-        name: 'Umbergaon GIDC',
+        name: 'Umbergaon (Umargam) GIDC',
       },
       {
         '@type': 'AdministrativeArea',
         name: 'Sarigam GIDC',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Bhilad Industrial Area',
+      },
+      {
+        '@type': 'City',
+        name: 'Valsad (Gundlav GIDC & Atul)',
+        containedInPlace: { '@type': 'State', name: 'Gujarat' },
       },
     ],
     openingHoursSpecification: [

@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 import { INITIAL_SERVICES } from '@/lib/data';
+import { LOCATIONS_DATA } from '@/lib/locations';
+import { ARTICLES_DATA } from '@/lib/articles';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://nextgenitsolution.com';
 
@@ -21,10 +23,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/locations`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${BASE_URL}/amc`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${BASE_URL}/products`,
@@ -60,5 +74,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...serviceRoutes];
+  // Dynamic Location Landing Pages (All 7 Industrial Corridors)
+  const locationRoutes: MetadataRoute.Sitemap = LOCATIONS_DATA.map((loc) => ({
+    url: `${BASE_URL}/locations/${loc.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }));
+
+  // Dynamic B2B Technical SEO Guides (4 Deep Articles)
+  const articleRoutes: MetadataRoute.Sitemap = ARTICLES_DATA.map((article) => ({
+    url: `${BASE_URL}/resources/${article.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...locationRoutes, ...serviceRoutes, ...articleRoutes];
 }

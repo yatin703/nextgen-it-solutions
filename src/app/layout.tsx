@@ -18,10 +18,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "NextGen IT Solution | Industrial IT Infrastructure & Security Specialist",
+    default: "IT Infrastructure & CCTV Solutions in Vapi, Silvassa & Daman | NextGen IT Solution",
     template: "%s | NextGen IT Solution",
   },
-  description: "NextGen IT Solution delivers mission-critical IT infrastructure, enterprise CCTV surveillance, CAT6/CAT6A structured LAN & fiber cabling, servers, firewalls, and 24/7 AMC support across Vapi GIDC, Silvassa, Daman, Umbergaon, and Sarigam.",
+  description: "NextGen IT Solution provides industrial IT infrastructure, CCTV, CAT6/CAT6A cabling, fiber optic networking, firewalls, servers, Wi-Fi and IT AMC services across Vapi, Silvassa, Daman and South Gujarat.",
   keywords: [
     "IT company in Vapi",
     "IT support Vapi GIDC",

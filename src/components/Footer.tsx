@@ -102,14 +102,14 @@ export default function Footer() {
               We deploy dedicated on-ground engineers throughout major industrial belts:
             </p>
             <div className="grid grid-cols-2 gap-2 text-xs">
-              <span className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:border-teal-500/50 transition-colors">Vapi GIDC</span>
-              <span className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:border-teal-500/50 transition-colors">Silvassa (Piparia)</span>
-              <span className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:border-teal-500/50 transition-colors">Daman (Kachigam)</span>
-              <span className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:border-teal-500/50 transition-colors">Daman (Somnath)</span>
-              <span className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:border-teal-500/50 transition-colors">Sarigam GIDC</span>
-              <span className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:border-teal-500/50 transition-colors">Umbergaon GIDC</span>
-              <span className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:border-teal-500/50 transition-colors">Bhilad & Valsad</span>
-              <span className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:border-teal-500/50 transition-colors">Pardi & Gundlav</span>
+              <Link href="/locations/vapi" className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:text-teal-400 hover:border-teal-500/50 transition-colors">Vapi GIDC</Link>
+              <Link href="/locations/silvassa" className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:text-teal-400 hover:border-teal-500/50 transition-colors">Silvassa (Piparia)</Link>
+              <Link href="/locations/daman" className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:text-teal-400 hover:border-teal-500/50 transition-colors">Daman (Somnath)</Link>
+              <Link href="/locations/sarigam" className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:text-teal-400 hover:border-teal-500/50 transition-colors">Sarigam GIDC</Link>
+              <Link href="/locations/umargam" className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:text-teal-400 hover:border-teal-500/50 transition-colors">Umargam GIDC</Link>
+              <Link href="/locations/bhilad" className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:text-teal-400 hover:border-teal-500/50 transition-colors">Bhilad Industrial</Link>
+              <Link href="/locations/valsad" className="bg-slate-800/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-slate-300 hover:text-teal-400 hover:border-teal-500/50 transition-colors">Valsad (Gundlav)</Link>
+              <Link href="/locations" className="bg-blue-900/40 border border-blue-700/60 px-2.5 py-1.5 rounded text-teal-300 hover:text-white font-semibold transition-colors">All 7 Hubs →</Link>
             </div>
           </div>
 
@@ -156,6 +156,8 @@ export default function Footer() {
           <div className="flex items-center space-x-6">
             <Link href="/about" className="hover:text-slate-300 transition">About</Link>
             <Link href="/services" className="hover:text-slate-300 transition">Services</Link>
+            <Link href="/locations" className="hover:text-slate-300 transition">Locations</Link>
+            <Link href="/resources" className="hover:text-slate-300 transition">Guides</Link>
             <Link href="/products" className="hover:text-slate-300 transition">Products</Link>
             <Link href="/admin" className="text-slate-500 hover:text-teal-400 transition">Admin CRM</Link>
           </div>

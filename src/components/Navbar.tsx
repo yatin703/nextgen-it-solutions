@@ -178,16 +178,22 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link href="/products" className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
+            <Link href="/products" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
               Products
             </Link>
-            <Link href="/amc" className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
+            <Link href="/amc" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
               AMC Contracts
             </Link>
-            <Link href="/about" className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
-              About Us
+            <Link href="/locations" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
+              Locations
             </Link>
-            <Link href="/contact" className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
+            <Link href="/resources" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
+              Guides
+            </Link>
+            <Link href="/about" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
+              About
+            </Link>
+            <Link href="/contact" className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
               Contact
             </Link>
           </nav>
@@ -252,6 +258,20 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
           >
             AMC Maintenance Plans
+          </Link>
+          <Link 
+            href="/locations" 
+            className="block py-2.5 text-base font-semibold text-slate-800 border-b border-slate-100 hover:text-blue-600"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Service Locations (7 Hubs)
+          </Link>
+          <Link 
+            href="/resources" 
+            className="block py-2.5 text-base font-semibold text-slate-800 border-b border-slate-100 hover:text-blue-600"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Guides & Knowledge Base
           </Link>
           <Link 
             href="/about" 

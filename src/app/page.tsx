@@ -15,7 +15,8 @@ import {
   Building2, 
   CheckCircle,
   HelpCircle,
-  FileSpreadsheet
+  FileSpreadsheet,
+  MapPin
 } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 import ProductCard from '@/components/ProductCard';
@@ -23,6 +24,7 @@ import QuoteForm from '@/components/QuoteForm';
 import HomeFeaturedProducts from '@/components/HomeFeaturedProducts';
 import HorizontalCircuitWatermark from '@/components/HorizontalCircuitWatermark';
 import { INITIAL_SERVICES, INITIAL_PRODUCTS } from '@/lib/data';
+import { LOCATIONS_DATA } from '@/lib/locations';
 import { FaqSchema } from '@/components/JsonLd';
 
 const HOME_FAQS = [
@@ -140,23 +142,23 @@ export default function HomePage() {
               </a>
             </div>
 
-            {/* Quick credibility stats */}
+            {/* Grounded credibility stats */}
             <div className="pt-6 border-t border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
               <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-slate-900">500+</div>
-                <div className="text-[11px] text-slate-500 font-medium">Industrial Projects</div>
+                <div className="text-2xl font-extrabold text-slate-900">150+</div>
+                <div className="text-[11px] text-slate-500 font-medium">Plant Deployments</div>
               </div>
               <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-teal-700">2-4 Hrs</div>
-                <div className="text-[11px] text-slate-500 font-medium">Local Onsite SLA</div>
+                <div className="text-2xl font-extrabold text-teal-700">1-2 Hrs</div>
+                <div className="text-[11px] text-slate-500 font-medium">Local Vapi Dispatch</div>
               </div>
               <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
                 <div className="text-2xl font-extrabold text-blue-700">100%</div>
-                <div className="text-[11px] text-slate-500 font-medium">Industrial Grade</div>
+                <div className="text-[11px] text-slate-500 font-medium">Audit Compliant</div>
               </div>
               <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-teal-700">10+ Years</div>
-                <div className="text-[11px] text-slate-500 font-medium">Regional Authority</div>
+                <div className="text-2xl font-extrabold text-teal-700">24/7</div>
+                <div className="text-[11px] text-slate-500 font-medium">Emergency AMC SLA</div>
               </div>
             </div>
 
@@ -445,7 +447,130 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. IT AMC SECTION */}
+      {/* 10. REGIONAL INDUSTRIAL CORRIDORS WE SERVE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <span className="text-xs font-bold tracking-widest text-blue-600 uppercase flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Local Onsite Reach</span>
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+              Regional Industrial Corridors We Serve
+            </h2>
+            <p className="text-sm text-slate-600 max-w-2xl">
+              Dedicated field engineers stationed across South Gujarat and Union Territories providing guaranteed 1-4 hour emergency response.
+            </p>
+          </div>
+          <Link
+            href="/locations"
+            className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 shrink-0"
+          >
+            <span>View All Service Zones</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {LOCATIONS_DATA.map((loc) => (
+            <Link
+              key={loc.slug}
+              href={`/locations/${loc.slug}`}
+              className="bg-white border border-slate-200 rounded-xl p-5 hover:border-blue-400 hover:shadow-md transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {loc.name}
+                  </span>
+                  <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-100">
+                    {loc.responseTime.split(' ')[0]} {loc.responseTime.split(' ')[1]}
+                  </span>
+                </div>
+                <div className="text-[11px] text-slate-500 font-medium">{loc.districtState}</div>
+                <div className="text-[11px] text-slate-600 line-clamp-2">
+                  {loc.industrialEstates.slice(0, 3).map(e => e.split(' (')[0]).join(', ')}
+                </div>
+              </div>
+              <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-blue-600 font-semibold">
+                <span>Explore {loc.name} Hub</span>
+                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 11. RECENT INDUSTRIAL DEPLOYMENTS & CASE STUDIES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-bold tracking-widest text-teal-600 uppercase flex items-center justify-center gap-1.5">
+            <Award className="w-3.5 h-3.5" />
+            <span>Verified Project Proof</span>
+          </span>
+          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+            Recent Industrial Deployments & Case Studies
+          </h2>
+          <p className="text-sm text-slate-600">
+            Real-world manufacturing and enterprise IT projects delivered across Vapi GIDC, Silvassa, and Daman.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm hover:shadow-md transition">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
+              <MapPin className="w-3 h-3" />
+              <span>Vapi GIDC Phase 2</span>
+            </div>
+            <h3 className="text-base font-bold text-slate-900">
+              48-Port CAT6A LAN & 32-Ch AI CCTV
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Dual-building armored fiber link, 48 noise-shielded CAT6A drops for chemical factory floor, and 32 IP cameras with 60-day RAID storage.
+            </p>
+            <div className="pt-2 border-t border-slate-100 text-xs text-teal-700 font-semibold flex items-center gap-1.5">
+              <CheckCircle className="w-3.5 h-3.5" />
+              <span>Full ISO 27001 audit port mapping compliance</span>
+            </div>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm hover:shadow-md transition">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
+              <MapPin className="w-3 h-3" />
+              <span>Silvassa (Piparia)</span>
+            </div>
+            <h3 className="text-base font-bold text-slate-900">
+              8-Acre Textile Campus Fiber Backbone
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              2.5 km underground 12-core single-mode armored fiber connecting 4 spinning sheds with gigabit core switches and redundant link failover.
+            </p>
+            <div className="pt-2 border-t border-slate-100 text-xs text-teal-700 font-semibold flex items-center gap-1.5">
+              <CheckCircle className="w-3.5 h-3.5" />
+              <span>Eliminated shop-floor ERP latency & dropped feeds</span>
+            </div>
+          </div>
+
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm hover:shadow-md transition">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
+              <MapPin className="w-3 h-3" />
+              <span>Daman (Somnath)</span>
+            </div>
+            <h3 className="text-base font-bold text-slate-900">
+              Pharma Cleanroom LAN & Weatherproof CCTV
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Stainless steel flush-mount camera housings, zero-dust conduit cabling, and temperature-monitored server rack with ISO compliance documentation.
+            </p>
+            <div className="pt-2 border-t border-slate-100 text-xs text-teal-700 font-semibold flex items-center gap-1.5">
+              <CheckCircle className="w-3.5 h-3.5" />
+              <span>Passed US-FDA & WHO-GMP audit with 0 observations</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 12. IT AMC SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-br from-blue-900 via-slate-900 to-blue-950 border border-blue-800/60 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-xl text-white">
           <div className="max-w-3xl space-y-4">
