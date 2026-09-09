@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Enterprise Hardware, Server Racks & Network Switches | NextGen IT Solution',
+  title: 'Enterprise Hardware, Server Racks & Network Switches',
   description: 'Enterprise IT hardware procurement for factories: L2/L3 managed switches, Cat6A bulk cable drums, server racks, NVR surveillance systems, and online UPS in Vapi, Silvassa & Daman.',
   keywords: [
     'IT hardware supplier Vapi',

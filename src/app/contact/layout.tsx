@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { BreadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Contact NextGen IT Solution | Vapi GIDC, Silvassa & Daman Local IT Support',
+  title: 'Contact Us | Vapi GIDC, Silvassa & Daman Local IT Support',
   description: 'Reach our industrial IT engineers in Vapi GIDC for fast response, technical site assessments, or urgent plant downtime calls. Phone: +91 99785 98817.',
   keywords: [
     'contact IT company Vapi',

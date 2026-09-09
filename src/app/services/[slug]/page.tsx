@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = `${service.title} in Vapi, Silvassa & Daman | NextGen IT Solution`;
+  const title = `${service.title} in Vapi, Silvassa & Daman`;
   const description = `${service.shortDesc} SLA-backed 2-4 hr local onsite support for industrial plants across Vapi GIDC, Silvassa, Daman, Umbergaon & Sarigam.`;
 
   return {
