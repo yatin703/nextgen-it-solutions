@@ -1,10 +1,31 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import { Shield, CheckCircle2, Award, Users, MapPin, ArrowRight } from 'lucide-react';
+import { BreadcrumbSchema } from '@/components/JsonLd';
+
+export const metadata: Metadata = {
+  title: 'About Us | 10+ Years Industrial IT Authority in Vapi, Silvassa, Daman',
+  description: 'NextGen IT Solution is South Gujarat and UT’s trusted turnkey IT infrastructure partner, empowering manufacturing plants, pharma units, and corporate offices with certified IT solutions.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About NextGen IT Solution | Industrial IT Infrastructure Specialist',
+    description: '10+ years of certified IT engineering, local spares warehousing, and 2-4 hr SLA support across Vapi, Silvassa, and Daman.',
+    url: '/about',
+  },
+};
 
 export default function AboutPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'About Us', url: '/about' }
+        ]} 
+      />
       
       {/* Hero */}
       <div className="max-w-3xl space-y-4">

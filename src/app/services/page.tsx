@@ -1,12 +1,33 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 import { INITIAL_SERVICES } from '@/lib/data';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { BreadcrumbSchema } from '@/components/JsonLd';
+
+export const metadata: Metadata = {
+  title: 'Enterprise IT Infrastructure & Security Services | Vapi, Silvassa, Daman',
+  description: 'Explore 15 specialized industrial IT services: CAT6/CAT6A LAN cabling, AI CCTV surveillance, fiber optic splicing, server racks, firewalls, and 24/7 AMC support across South Gujarat & UT.',
+  alternates: {
+    canonical: '/services',
+  },
+  openGraph: {
+    title: 'Industrial IT Infrastructure & Security Services | NextGen IT Solution',
+    description: 'Turnkey IT networking, server storage, AI CCTV, and SLA-backed maintenance for manufacturing plants across Vapi, Silvassa, and Daman.',
+    url: '/services',
+  },
+};
 
 export default function ServicesPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' }
+        ]} 
+      />
       {/* Header */}
       <div className="border-b border-slate-200 pb-8 space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-semibold uppercase tracking-wider">

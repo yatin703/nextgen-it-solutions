@@ -1,11 +1,40 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import { Clock, CheckCircle, ShieldCheck, ArrowRight, PhoneCall } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
+import { BreadcrumbSchema } from '@/components/JsonLd';
+
+export const metadata: Metadata = {
+  title: 'Industrial IT AMC & Onsite SLA Support (2-4 Hrs) | Vapi, Silvassa, Daman',
+  description: 'Comprehensive & non-comprehensive Annual Maintenance Contracts (AMC) for manufacturing plants. Guaranteed 2-4 hr emergency onsite response for servers, LAN networks, CCTV, and computers.',
+  keywords: [
+    'IT AMC Vapi GIDC',
+    'computer AMC Silvassa',
+    'industrial IT maintenance Daman',
+    'server AMC contract Gujarat',
+    'CCTV AMC services Vapi',
+    '2-4 hour onsite SLA IT support'
+  ],
+  alternates: {
+    canonical: '/amc',
+  },
+  openGraph: {
+    title: 'Industrial IT AMC & Onsite SLA Support | NextGen IT Solution',
+    description: 'Ensure zero downtime for factory computers, ERP servers, switches, and surveillance cameras with SLA-backed IT AMC contracts.',
+    url: '/amc',
+  },
+};
 
 export default function AMCPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'IT AMC & Support', url: '/amc' }
+        ]} 
+      />
       
       {/* Header */}
       <div className="max-w-3xl space-y-4">

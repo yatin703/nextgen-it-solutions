@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -11,10 +12,12 @@ import {
   HelpCircle, 
   PhoneCall, 
   MessageSquare,
-  FileSpreadsheet
+  FileSpreadsheet,
+  MapPin
 } from 'lucide-react';
 import { INITIAL_SERVICES } from '@/lib/data';
 import QuoteForm from '@/components/QuoteForm';
+import { BreadcrumbSchema, FaqSchema, ServiceSchema } from '@/components/JsonLd';
 
 interface Props {
   params: { slug: string };
@@ -24,6 +27,56 @@ export async function generateStaticParams() {
   return INITIAL_SERVICES.map((service) => ({
     slug: service.slug,
   }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const service = INITIAL_SERVICES.find((s) => s.slug === params.slug);
+  if (!service) {
+    return {
+      title: 'Service Not Found',
+    };
+  }
+
+  const title = `${service.title} in Vapi, Silvassa & Daman | NextGen IT Solution`;
+  const description = `${service.shortDesc} SLA-backed 2-4 hr local onsite support for industrial plants across Vapi GIDC, Silvassa, Daman, Umbergaon & Sarigam.`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      `${service.title} Vapi`,
+      `${service.title} Silvassa`,
+      `${service.title} Daman`,
+      `${service.title} GIDC`,
+      `${service.category} contractor Vapi`,
+      'industrial IT solutions South Gujarat',
+      '2-4 hour onsite IT support',
+      ...service.features.slice(0, 3),
+    ],
+    alternates: {
+      canonical: `/services/${service.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/services/${service.slug}`,
+      type: 'website',
+      images: [
+        {
+          url: '/images/nextgen-logo-it-solution-3d.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${service.title} - NextGen IT Solution`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/images/nextgen-logo-it-solution-3d.jpg'],
+    },
+  };
 }
 
 export default function ServiceDetailPage({ params }: Props) {
@@ -36,14 +89,30 @@ export default function ServiceDetailPage({ params }: Props) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
       
+      {/* Rich Result SEO Schemas */}
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: service.title, url: `/services/${service.slug}` }
+        ]} 
+      />
+      <ServiceSchema 
+        name={service.title}
+        description={service.shortDesc}
+        category={service.category}
+        slug={service.slug}
+      />
+      {service.faqs && <FaqSchema faqs={service.faqs} />}
+
       {/* Breadcrumbs & Navigation */}
-      <div className="flex items-center gap-2 text-xs text-slate-500">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500">
         <Link href="/" className="hover:text-blue-600 transition">Home</Link>
         <span>/</span>
         <Link href="/services" className="hover:text-blue-600 transition">Services</Link>
         <span>/</span>
-        <span className="text-slate-900 font-semibold">{service.title}</span>
-      </div>
+        <span className="text-slate-900 font-semibold" aria-current="page">{service.title}</span>
+      </nav>
 
       {/* Service Hero */}
       <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-sm">
@@ -155,6 +224,35 @@ export default function ServiceDetailPage({ params }: Props) {
                   {ind}
                 </span>
               ))}
+            </div>
+          </div>
+
+          {/* Regional Industrial Coverage & Local SLA (Local SEO Anchor) */}
+          <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 text-white rounded-2xl p-6 space-y-4 border border-slate-700 shadow-md">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-teal-400" />
+              <h2 className="text-base sm:text-lg font-bold text-white">Local Industrial Coverage & 2-4 Hr Onsite SLA</h2>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Our certified engineering teams are stationed locally to provide rapid site surveys, deployment, and emergency hardware replacement across:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs">
+              <div className="bg-slate-800/90 rounded-xl p-3 border border-slate-700">
+                <div className="font-bold text-teal-300">Vapi Industrial Hub</div>
+                <div className="text-slate-400 mt-1">GIDC Phase 1, 2, 3 & 4, Morai, Koparli, Balitha</div>
+              </div>
+              <div className="bg-slate-800/90 rounded-xl p-3 border border-slate-700">
+                <div className="font-bold text-teal-300">Silvassa & UT Industrial Zones</div>
+                <div className="text-slate-400 mt-1">Piparia, Masat, Sayli, Amli, Kharadpada, Rakholi</div>
+              </div>
+              <div className="bg-slate-800/90 rounded-xl p-3 border border-slate-700">
+                <div className="font-bold text-teal-300">Daman Industrial Corridor</div>
+                <div className="text-slate-400 mt-1">Somnath, Kachigam, Dabhel, Ringanwada, Bhimpore</div>
+              </div>
+              <div className="bg-slate-800/90 rounded-xl p-3 border border-slate-700">
+                <div className="font-bold text-teal-300">Border Industrial Estates</div>
+                <div className="text-slate-400 mt-1">Umbergaon GIDC & Sarigam GIDC Manufacturing Units</div>
+              </div>
             </div>
           </div>
 

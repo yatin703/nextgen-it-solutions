@@ -23,6 +23,26 @@ import QuoteForm from '@/components/QuoteForm';
 import HomeFeaturedProducts from '@/components/HomeFeaturedProducts';
 import HorizontalCircuitWatermark from '@/components/HorizontalCircuitWatermark';
 import { INITIAL_SERVICES, INITIAL_PRODUCTS } from '@/lib/data';
+import { FaqSchema } from '@/components/JsonLd';
+
+const HOME_FAQS = [
+  {
+    question: "Do you provide physical site visits before submitting a quote?",
+    answer: "Yes. For industrial cabling, CCTV installations, and corporate AMC contracts, our engineers visit your plant in Vapi, Silvassa, or Daman to assess cable routes, rack positions, camera angles, and electrical earthing before preparing your BOQ."
+  },
+  {
+    question: "Can we submit our own Bill of Quantities (BOQ) or Tender specification?",
+    answer: "Yes, absolutely! You can upload your PDF or Excel BOQ using our Request a Quote form. Our procurement and engineering team will provide competitive vendor pricing for the specified models."
+  },
+  {
+    question: "What are the payment and billing terms for registered corporate accounts?",
+    answer: "We provide formal GST invoices for all hardware and labor. For ongoing corporate AMC clients and pre-approved manufacturing companies, we offer flexible milestone and PO-based billing terms."
+  },
+  {
+    question: "What is your emergency onsite response SLA for manufacturing units?",
+    answer: "We guarantee a 2 to 4 hour emergency onsite response SLA across all industrial zones in Vapi GIDC, Silvassa, and Daman for AMC contract clients."
+  }
+];
 
 export default function HomePage() {
   const featuredServices = INITIAL_SERVICES.slice(0, 6);
@@ -30,6 +50,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-24 pb-16">
+      <FaqSchema faqs={HOME_FAQS} />
       
       {/* 1. HERO SECTION */}
       <section className="relative pt-3 pb-12 lg:pt-5 lg:pb-20 overflow-hidden bg-gradient-to-b from-slate-100 via-blue-50/50 to-slate-50 border-b border-slate-200">
