@@ -67,3 +67,31 @@ export interface ThemeConfig {
   address: string;
   updatedAt: string;
 }
+
+export interface VisitingCardPartner {
+  name: string;
+  designation: string;
+  phone?: string;
+  email?: string;
+}
+
+export interface VisitingCardConfig {
+  companyName: string;
+  subtitle: string;
+  tagline: string;
+  locationBadge: string;
+  primaryPhone: string;
+  email: string;
+  website: string;
+  address: string;
+  regionalHubs: string;
+  partners: VisitingCardPartner[];
+  backCapabilitiesTitle: string;
+  backSlaBadge: string;
+  services: string[];
+  qualityStamp: string;
+  printSpecGsm: string;
+  printSpecFinish: string;
+  printSpecSize: string;
+  updatedAt?: string;
+}

@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
-import { Lead, ServiceItem, ProductItem, LeadStatus, ThemeConfig } from './types';
-import { INITIAL_SERVICES, INITIAL_PRODUCTS, INITIAL_LEADS, INITIAL_THEME } from './data';
+import { Lead, ServiceItem, ProductItem, LeadStatus, ThemeConfig, VisitingCardConfig } from './types';
+import { INITIAL_SERVICES, INITIAL_PRODUCTS, INITIAL_LEADS, INITIAL_THEME, INITIAL_VISITING_CARD } from './data';
 
 const IS_SERVERLESS = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
 
@@ -17,12 +17,14 @@ const LEADS_FILE = path.join(DATA_DIR, 'leads.json');
 const SERVICES_FILE = path.join(DATA_DIR, 'services.json');
 const PRODUCTS_FILE = path.join(DATA_DIR, 'products.json');
 const THEME_FILE = path.join(DATA_DIR, 'theme.json');
+const VISITING_CARD_FILE = path.join(DATA_DIR, 'visiting-card.json');
 
 // In-memory cache to preserve state during serverless function runtime
 let cachedLeads: Lead[] | null = null;
 let cachedProducts: ProductItem[] | null = null;
 let cachedServices: ServiceItem[] | null = null;
 let cachedTheme: ThemeConfig | null = null;
+let cachedVisitingCard: VisitingCardConfig | null = null;
 
 function safeWriteJson(filePath: string, data: any) {
   try {
@@ -225,7 +227,30 @@ export async function updateThemeConfig(updates: Partial<ThemeConfig>): Promise<
     updatedAt: new Date().toISOString()
   };
 
-  cachedTheme = updated;
+    cachedTheme = updated;
   safeWriteJson(THEME_FILE, updated);
+  return updated;
+}
+
+// ==========================================
+// VISITING CARD SETTINGS REPOSITORY
+// ==========================================
+
+export async function getVisitingCardConfig(): Promise<VisitingCardConfig> {
+  if (cachedVisitingCard) return cachedVisitingCard;
+  cachedVisitingCard = safeReadJson<VisitingCardConfig>(VISITING_CARD_FILE, 'visiting-card.json', INITIAL_VISITING_CARD);
+  return cachedVisitingCard;
+}
+
+export async function updateVisitingCardConfig(updates: Partial<VisitingCardConfig>): Promise<VisitingCardConfig> {
+  const current = await getVisitingCardConfig();
+  const updated: VisitingCardConfig = {
+    ...current,
+    ...updates,
+    updatedAt: new Date().toISOString()
+  };
+
+  cachedVisitingCard = updated;
+  safeWriteJson(VISITING_CARD_FILE, updated);
   return updated;
 }

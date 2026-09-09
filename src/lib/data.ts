@@ -1,4 +1,4 @@
-import { ServiceItem, ProductItem, Lead, ThemeConfig } from './types';
+import { ServiceItem, ProductItem, Lead, ThemeConfig, VisitingCardConfig } from './types';
 
 export const INITIAL_SERVICES: ServiceItem[] = [
   {
@@ -1039,3 +1039,49 @@ export const INITIAL_LEADS: Lead[] = [
     updatedAt: '2026-08-24T16:00:00.000Z'
   }
 ];
+
+export const INITIAL_VISITING_CARD: VisitingCardConfig = {
+  companyName: 'NextGen IT Solution',
+  subtitle: 'Industrial IT Infrastructure & Security',
+  tagline: 'Industrial IT Infrastructure, CCTV & Security Solutions',
+  locationBadge: 'VAPI GIDC',
+  primaryPhone: '+91 99785 98817',
+  email: 'nextgen.itsolution@zohomail.in',
+  website: 'nextgenitsolution.com',
+  address: 'GIDC Industrial Estate, Char Rasta, Vapi, Gujarat - 396195',
+  regionalHubs: 'Vapi • Silvassa • Daman • Sarigam',
+  partners: [
+    {
+      name: 'Yatin Patel',
+      designation: 'Director — Solutions Architecture',
+      phone: '+91 99785 98817',
+      email: 'nextgen.itsolution@zohomail.in'
+    },
+    {
+      name: 'Bhavesh Patel',
+      designation: 'Director — Operations & Projects',
+      phone: '+91 99785 98817',
+      email: 'nextgen.itsolution@zohomail.in'
+    },
+    {
+      name: 'Pankaj Patel',
+      designation: 'Director — Network & Security',
+      phone: '+91 99785 98817',
+      email: 'nextgen.itsolution@zohomail.in'
+    }
+  ],
+  backCapabilitiesTitle: 'Core Industrial Capabilities',
+  backSlaBadge: '6-8 Hr Onsite SLA',
+  services: [
+    'Industrial CCTV & Surveillance (4K / AI)',
+    'CAT6 / CAT6A Structured LAN (Fluke Certified)',
+    'Fiber Optic Splicing & OTDR Testing',
+    'Sophos & Fortinet Next-Gen Firewalls',
+    'Enterprise Server, NAS & Cloud Backup',
+    'Factory IT Annual AMC Maintenance'
+  ],
+  qualityStamp: 'Fluke Calibrated Testing',
+  printSpecGsm: '350 GSM or 400 GSM Art Card',
+  printSpecFinish: 'Thermal Velvet Matte + Spot UV on Logo & Names',
+  printSpecSize: '3.5 in × 2.0 in (89mm × 51mm) + 3mm Bleed'
+};

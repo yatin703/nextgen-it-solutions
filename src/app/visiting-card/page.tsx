@@ -1,10 +1,32 @@
 'use client';
 
-import React from 'react';
-import { Printer, ShieldCheck, Phone, Mail, Globe, MapPin, CheckCircle2, Download, ArrowLeft } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Printer, ShieldCheck, Phone, Mail, Globe, MapPin, CheckCircle2, ArrowLeft, Edit, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import { VisitingCardConfig } from '@/lib/types';
+import { INITIAL_VISITING_CARD } from '@/lib/data';
 
 export default function VisitingCardPage() {
+  const [config, setConfig] = useState<VisitingCardConfig>(INITIAL_VISITING_CARD);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadConfig() {
+      try {
+        const res = await fetch('/api/visiting-card');
+        const data = await res.json();
+        if (data.success && data.card) {
+          setConfig(data.card);
+        }
+      } catch (err) {
+        console.error('Failed to load dynamic card config, using defaults', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadConfig();
+  }, []);
+
   const handlePrint = () => {
     window.print();
   };
@@ -19,17 +41,24 @@ export default function VisitingCardPage() {
             <span>Official Executive Print Sheet</span>
           </div>
           <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-            NextGen IT Solution — Visiting Card PDF
+            {config.companyName} — Visiting Card PDF
           </h1>
           <p className="text-xs sm:text-sm text-slate-500">
-            Print-ready specifications for Yatin Patel, Bhavesh Patel & Pankaj Patel.
+            Print-ready layout for {config.partners.map(p => p.name).join(', ')}.
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
+          <Link
+            href="/admin/visiting-card"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+          >
+            <Edit className="w-3.5 h-3.5 text-blue-600" />
+            <span>Edit in Admin</span>
+          </Link>
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Site</span>
@@ -51,7 +80,7 @@ export default function VisitingCardPage() {
         <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6 print:border-none print:shadow-none print:p-0">
           <div className="border-b border-slate-100 pb-4 flex items-center justify-between print:hidden">
             <div>
-              <h2 className="text-lg font-bold text-slate-900">Set 1: Joint Executive Card (All 3 Partners)</h2>
+              <h2 className="text-lg font-bold text-slate-900">Set 1: Joint Executive Card (All Partners)</h2>
               <p className="text-xs text-slate-500">Standard 3.5" × 2.0" (89mm × 51mm) with 3mm bleed.</p>
             </div>
             <span className="text-xs font-semibold px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md">
@@ -74,54 +103,48 @@ export default function VisitingCardPage() {
                   <div>
                     <div className="flex items-center gap-1.5">
                       <div className="w-6 h-6 rounded bg-gradient-to-tr from-blue-600 to-teal-500 flex items-center justify-center text-white font-extrabold text-[11px]">
-                        N
+                        {config.companyName ? config.companyName.charAt(0) : 'N'}
                       </div>
                       <span className="font-extrabold text-slate-900 text-sm tracking-tight">
-                        NextGen <span className="text-blue-600">IT Solution</span>
+                        {config.companyName.split(' ')[0]} <span className="text-blue-600">{config.companyName.split(' ').slice(1).join(' ')}</span>
                       </span>
                     </div>
                     <span className="text-[7.5px] font-semibold text-slate-500 block uppercase tracking-wider mt-0.5">
-                      Industrial IT Infrastructure & Security
+                      {config.subtitle}
                     </span>
                   </div>
                   <span className="text-[7px] font-bold px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded border border-blue-200">
-                    VAPI GIDC
+                    {config.locationBadge}
                   </span>
                 </div>
 
-                {/* 3 Partner Names */}
-                <div className="grid grid-cols-3 gap-1 my-auto pt-1 pb-1 border-y border-slate-100 text-center">
-                  <div>
-                    <div className="font-extrabold text-slate-900 text-[10px] leading-tight">Yatin Patel</div>
-                    <div className="text-[7.5px] text-blue-600 font-semibold mt-0.5">Director</div>
-                  </div>
-                  <div>
-                    <div className="font-extrabold text-slate-900 text-[10px] leading-tight">Bhavesh Patel</div>
-                    <div className="text-[7.5px] text-blue-600 font-semibold mt-0.5">Director</div>
-                  </div>
-                  <div>
-                    <div className="font-extrabold text-slate-900 text-[10px] leading-tight">Pankaj Patel</div>
-                    <div className="text-[7.5px] text-blue-600 font-semibold mt-0.5">Director</div>
-                  </div>
+                {/* Partner Names Grid */}
+                <div className={`grid grid-cols-${Math.min(config.partners.length, 3)} gap-1 my-auto pt-1 pb-1 border-y border-slate-100 text-center`}>
+                  {config.partners.slice(0, 3).map((partner, idx) => (
+                    <div key={idx}>
+                      <div className="font-extrabold text-slate-900 text-[9px] leading-tight truncate">{partner.name}</div>
+                      <div className="text-[7px] text-blue-600 font-semibold mt-0.5 truncate">{partner.designation.split('—')[0].trim()}</div>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Contact Footer */}
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[7.5px] text-slate-600 font-medium">
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 truncate">
                     <span className="text-blue-600 font-bold">📞</span>
-                    <span className="font-bold text-slate-900">+91 99785 98817</span>
+                    <span className="font-bold text-slate-900 truncate">{config.primaryPhone}</span>
                   </div>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 truncate">
                     <span className="text-teal-600 font-bold">🌐</span>
-                    <span className="truncate">nextgenitsolution.com</span>
+                    <span className="truncate">{config.website}</span>
                   </div>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 truncate">
                     <span className="text-blue-600 font-bold">✉️</span>
-                    <span className="truncate">nextgen.itsolution@zohomail.in</span>
+                    <span className="truncate">{config.email}</span>
                   </div>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 truncate">
                     <span className="text-teal-600 font-bold">📍</span>
-                    <span className="truncate">GIDC, Vapi, Gujarat - 396195</span>
+                    <span className="truncate">{config.address}</span>
                   </div>
                 </div>
               </div>
@@ -135,46 +158,73 @@ export default function VisitingCardPage() {
               <div className="w-[3.5in] h-[2in] bg-slate-900 text-white border border-slate-800 rounded-xl p-4 flex flex-col justify-between shadow-md relative overflow-hidden print:border print:border-slate-800 print:shadow-none">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
                   <span className="text-[9px] font-extrabold tracking-wider text-teal-400 uppercase">
-                    Core Industrial Capabilities
+                    {config.backCapabilitiesTitle}
                   </span>
-                  <span className="text-[7px] text-slate-400 font-medium">6-8 Hr Onsite SLA</span>
+                  <span className="text-[7px] text-slate-400 font-medium">{config.backSlaBadge}</span>
                 </div>
 
                 {/* Services List */}
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[7.5px] text-slate-300 my-auto">
-                  <div className="flex items-center gap-1">
-                    <span className="text-teal-400 font-bold">✓</span>
-                    <span>Industrial CCTV & Surveillance</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-teal-400 font-bold">✓</span>
-                    <span>CAT6 / CAT6A Structured LAN</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-teal-400 font-bold">✓</span>
-                    <span>Fiber Optic Splicing & OTDR</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-teal-400 font-bold">✓</span>
-                    <span>Sophos & Fortinet Firewalls</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-teal-400 font-bold">✓</span>
-                    <span>Server, Storage & Backup</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-teal-400 font-bold">✓</span>
-                    <span>Factory IT Annual AMC</span>
-                  </div>
+                  {config.services.slice(0, 6).map((srv, idx) => (
+                    <div key={idx} className="flex items-center gap-1 truncate">
+                      <span className="text-teal-400 font-bold">✓</span>
+                      <span className="truncate">{srv}</span>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="pt-1.5 border-t border-slate-800/80 flex items-center justify-between text-[7px] text-slate-400">
-                  <span><strong>Regions:</strong> Vapi • Silvassa • Daman • Sarigam</span>
-                  <span className="text-teal-300 font-bold">Fluke Certified Testing</span>
+                  <span className="truncate"><strong>Regions:</strong> {config.regionalHubs}</span>
+                  <span className="text-teal-300 font-bold shrink-0">{config.qualityStamp}</span>
                 </div>
               </div>
             </div>
 
+          </div>
+        </div>
+
+        {/* SET 2: INDIVIDUAL PERSONALIZED CARDS */}
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6 print:border-none print:shadow-none print:p-0">
+          <div className="border-b border-slate-100 pb-4 print:hidden">
+            <h2 className="text-lg font-bold text-slate-900">Set 2: Individual Executive Cards</h2>
+            <p className="text-xs text-slate-500">Dedicated card for each executive partner with their specific designation.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-items-center print:grid-cols-3 print:gap-4">
+            {config.partners.map((partner, idx) => (
+              <div key={idx} className="space-y-2">
+                <span className="text-xs font-bold text-slate-500 block text-center print:hidden">
+                  {partner.name}
+                </span>
+                <div className="w-[3.5in] h-[2in] bg-white border border-slate-300 rounded-xl p-3.5 flex flex-col justify-between shadow-sm relative overflow-hidden print:border print:border-slate-300 print:shadow-none">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600"></div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-5 h-5 rounded bg-blue-600 flex items-center justify-center text-white font-extrabold text-[10px]">
+                        {config.companyName ? config.companyName.charAt(0) : 'N'}
+                      </div>
+                      <span className="font-extrabold text-slate-900 text-xs">
+                        {config.companyName.split(' ')[0]} <span className="text-blue-600">{config.companyName.split(' ').slice(1).join(' ')}</span>
+                      </span>
+                    </div>
+                    <span className="text-[7px] text-slate-500 block uppercase tracking-wider font-semibold">
+                      {config.subtitle}
+                    </span>
+                  </div>
+
+                  <div className="my-auto py-1">
+                    <div className="font-extrabold text-slate-900 text-xs">{partner.name}</div>
+                    <div className="text-[8px] text-blue-600 font-bold">{partner.designation}</div>
+                  </div>
+
+                  <div className="text-[7.5px] text-slate-600 space-y-0.5 border-t border-slate-100 pt-1">
+                    <div className="font-bold text-slate-900 truncate">📞 {partner.phone || config.primaryPhone}</div>
+                    <div className="truncate">✉️ {partner.email || config.email}</div>
+                    <div className="truncate">📍 {config.regionalHubs}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -187,15 +237,15 @@ export default function VisitingCardPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
             <div className="bg-slate-800 p-3.5 rounded-xl border border-slate-700/60">
               <strong className="text-white block mb-1">Dimensions & Bleed:</strong>
-              <span>Cut Size: 3.5 in × 2.0 in (89mm × 51mm)<br />Bleed: 3mm on all 4 sides</span>
+              <span>{config.printSpecSize}</span>
             </div>
             <div className="bg-slate-800 p-3.5 rounded-xl border border-slate-700/60">
               <strong className="text-white block mb-1">Paper & Lamination:</strong>
-              <span>350 GSM or 400 GSM Art Card<br />Thermal Velvet Matte Lamination</span>
+              <span>{config.printSpecGsm}<br />{config.printSpecFinish.split('+')[0]}</span>
             </div>
             <div className="bg-slate-800 p-3.5 rounded-xl border border-slate-700/60">
               <strong className="text-white block mb-1">Special Effects:</strong>
-              <span>Spot UV (Gloss) on NextGen Logo<br />Embossing on Partner Names</span>
+              <span>{config.printSpecFinish.split('+')[1] || 'Spot UV on Logo & Names'}</span>
             </div>
           </div>
         </div>
