@@ -99,7 +99,7 @@ export default function VisitingCardPage() {
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-teal-500 to-cyan-400 z-10"></div>
 
                 {/* Round Background Light Watermark Logo */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full opacity-[0.09] pointer-events-none overflow-hidden select-none flex items-center justify-center z-0">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full opacity-[0.20] pointer-events-none overflow-hidden select-none flex items-center justify-center z-0">
                   <img 
                     src="/images/nextgen-logo-it-solution-3d.jpg" 
                     alt="" 
@@ -170,7 +170,7 @@ export default function VisitingCardPage() {
               </span>
               <div className="w-[3.5in] h-[2in] bg-slate-900 text-white border border-slate-800 rounded-xl p-4 flex flex-col justify-between shadow-md relative overflow-hidden print:border print:border-slate-800 print:shadow-none">
                 {/* Round Background Light Watermark Logo (Back side) */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full opacity-[0.06] pointer-events-none overflow-hidden select-none flex items-center justify-center z-0">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full opacity-[0.20] pointer-events-none overflow-hidden select-none flex items-center justify-center z-0">
                   <img 
                     src="/images/nextgen-logo-it-solution-3d.jpg" 
                     alt="" 
@@ -231,7 +231,7 @@ export default function VisitingCardPage() {
                   <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600 z-10"></div>
 
                   {/* Round Background Light Watermark Logo */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full opacity-[0.08] pointer-events-none overflow-hidden select-none flex items-center justify-center z-0">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full opacity-[0.20] pointer-events-none overflow-hidden select-none flex items-center justify-center z-0">
                     <img 
                       src="/images/nextgen-logo-it-solution-3d.jpg" 
                       alt="" 
