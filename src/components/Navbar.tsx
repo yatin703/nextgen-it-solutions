@@ -30,33 +30,49 @@ export default function Navbar() {
   return (
     <header className="w-full sticky top-0 z-50 bg-white text-slate-800 shadow-sm border-b border-slate-200">
       {/* Regional / Contact Top Bar */}
-      <div className="bg-[#111827] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-2">
+      <div className="bg-[#111827] text-slate-300 text-xs py-1.5 px-3 sm:px-4 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
+          
+          {/* Corridor text: concise on mobile, full on tablet/desktop */}
+          <div className="flex items-center gap-1.5 text-[11px] sm:text-xs min-w-0">
             <MapPin className="w-3.5 h-3.5 text-teal-400 shrink-0" />
-            <span>Serving Industries across <strong className="text-white">{theme.regionalCorridor || 'Vapi (GIDC) • Silvassa • Daman • Umbergaon • Sarigam'}</strong></span>
+            <span className="truncate">
+              Serving <strong className="text-white font-medium">Vapi • Silvassa • Daman • GIDC</strong>
+              <span className="hidden md:inline"> • Umbergaon • Sarigam</span>
+            </span>
           </div>
-          <div className="flex items-center gap-4 text-xs">
-            <a href={`tel:${theme.primaryPhone || '+919978598817'}`} className="hover:text-teal-300 flex items-center gap-1 transition">
-              <Phone className="w-3.5 h-3.5 text-teal-400" />
-              <span>{theme.primaryPhone || '+91 99785 98817'}</span>
+
+          {/* Quick Contact Links: clean, nowrap on mobile */}
+          <div className="flex items-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs shrink-0">
+            <a 
+              href={`tel:${theme.primaryPhone || '+919978598817'}`} 
+              className="hover:text-teal-300 flex items-center gap-1 transition whitespace-nowrap font-medium text-white sm:text-slate-300"
+            >
+              <Phone className="w-3 h-3 text-teal-400 shrink-0" />
+              <span className="whitespace-nowrap">{theme.primaryPhone || '+91 99785 98817'}</span>
             </a>
-            <span className="text-slate-700">|</span>
-            <a href={`mailto:${theme.email || 'nextgen.itsolution@zohomail.in'}`} className="hover:text-teal-300 flex items-center gap-1 transition">
-              <Mail className="w-3.5 h-3.5 text-teal-400" />
-              <span>{theme.email || 'nextgen.itsolution@zohomail.in'}</span>
+            
+            <span className="text-slate-700 hidden lg:inline">|</span>
+            <a 
+              href={`mailto:${theme.email || 'nextgen.itsolution@zohomail.in'}`} 
+              className="hover:text-teal-300 hidden lg:flex items-center gap-1 transition truncate max-w-[210px]"
+            >
+              <Mail className="w-3 h-3 text-teal-400 shrink-0" />
+              <span className="truncate">{theme.email || 'nextgen.itsolution@zohomail.in'}</span>
             </a>
-            <span className="text-slate-700">|</span>
+
+            <span className="text-slate-700 hidden sm:inline">|</span>
             <a 
               href={`https://wa.me/${cleanPhone}?text=Hello%20NextGen%20IT%20Solution,%20I%20would%20like%20to%20inquire%20about%20your%20IT%20services.`} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-teal-400 hover:text-teal-300 flex items-center gap-1 font-semibold transition"
+              className="text-teal-400 hover:text-teal-300 hidden sm:flex items-center gap-1 font-semibold transition whitespace-nowrap"
             >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>WhatsApp Us</span>
+              <MessageSquare className="w-3 h-3 shrink-0" />
+              <span>WhatsApp</span>
             </a>
           </div>
+
         </div>
       </div>
 

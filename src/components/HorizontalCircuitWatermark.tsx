@@ -264,8 +264,8 @@ export default function HorizontalCircuitWatermark({
       </svg>
       </div>
 
-      {/* 3. Central 3D Silver & Golden Live Working Industrial Machine Core (Clean Round Floating Emblem) */}
-      <div className={`absolute top-1/2 right-6 sm:right-12 lg:right-24 -translate-y-1/2 pointer-events-none select-none z-10 ${logoOpacity}`}>
+      {/* 3. Central 3D Silver & Golden Machine Core (Desktop Floating Anchor - hidden on mobile to prevent text collision) */}
+      <div className={`hidden lg:flex absolute top-1/2 right-10 xl:right-24 -translate-y-1/2 pointer-events-none select-none z-10 ${logoOpacity}`}>
         
         {/* Floating Circular Anchor (Completely transparent background, zero gray box) */}
         <div className="relative flex items-center justify-center">
