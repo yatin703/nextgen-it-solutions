@@ -22,6 +22,7 @@ import ProductCard from '@/components/ProductCard';
 import QuoteForm from '@/components/QuoteForm';
 import HomeFeaturedProducts from '@/components/HomeFeaturedProducts';
 import RunningCircuitLogo from '@/components/RunningCircuitLogo';
+import HeroBackgroundCircuit from '@/components/HeroBackgroundCircuit';
 import { INITIAL_SERVICES, INITIAL_PRODUCTS } from '@/lib/data';
 
 export default function HomePage() {
@@ -37,6 +38,9 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a08_1px,transparent_1px),linear-gradient(to_bottom,#0f172a08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
         <div className="absolute top-12 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        {/* Continuous Running Circuit Background Animation with Circular Brand Text */}
+        <HeroBackgroundCircuit />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -120,69 +124,69 @@ export default function HomePage() {
             <div className="lg:col-span-5 flex justify-center relative">
               
               {/* Outer decorative ambient glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-teal-400/20 to-indigo-600/20 rounded-3xl blur-2xl transform scale-95 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/15 via-teal-400/15 to-indigo-500/10 rounded-3xl blur-2xl transform scale-95 pointer-events-none" />
 
-              {/* Futuristic Showcase Card */}
-              <div className="w-full max-w-md bg-gradient-to-b from-[#0f172a] via-[#111c35] to-[#0a0f1d] border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative text-white overflow-hidden group">
+              {/* Futuristic Showcase Card (Enterprise Light Theme) */}
+              <div className="w-full max-w-md bg-white/95 backdrop-blur-xl border border-blue-200/90 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-blue-600/10 relative text-slate-900 overflow-hidden group">
                 
                 {/* Cyber Grid background within card */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#38bdf810_1px,transparent_1px),linear-gradient(to_bottom,#38bdf810_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] pointer-events-none" />
-                <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-500/25 rounded-full blur-2xl pointer-events-none" />
-                <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-teal-500/25 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a06_1px,transparent_1px),linear-gradient(to_bottom,#0f172a06_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] pointer-events-none" />
+                <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-400/15 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-teal-400/15 rounded-full blur-2xl pointer-events-none" />
 
                 {/* Top Badge Row */}
-                <div className="relative z-10 flex items-center justify-between pb-4 border-b border-slate-800">
+                <div className="relative z-10 flex items-center justify-between pb-4 border-b border-slate-200">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="text-[11px] font-mono font-bold text-teal-300 tracking-wider uppercase">
+                    <span className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-ping" />
+                    <span className="text-[11px] font-mono font-bold text-teal-800 tracking-wider uppercase">
                       NextGen Industrial Core
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 border border-blue-700/50">
+                  <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">
                     B2B Certified
                   </span>
                 </div>
 
-                {/* Center 3D Logo Showcase with Continuous Running Circuit */}
+                {/* Center 3D Logo Showcase with Continuous Running Circuit & Circular Brand Text */}
                 <div className="relative z-10 my-4 flex flex-col items-center justify-center">
                   
-                  {/* Continuous Running Cyber Circuit Logo */}
-                  <div className="transform hover:scale-105 transition-transform duration-500 py-2">
-                    <RunningCircuitLogo size="lg" />
+                  {/* Continuous Running Cyber Circuit Logo with Circular Brand Text */}
+                  <div className="transform hover:scale-105 transition-transform duration-500 py-1">
+                    <RunningCircuitLogo size="lg" theme="light" />
                   </div>
 
                   {/* Brand Title below Running Circuit Logo */}
                   <div className="text-center mt-3 space-y-1">
-                    <div className="text-lg font-extrabold text-white tracking-tight flex items-center justify-center gap-1.5">
+                    <div className="text-lg font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-1.5">
                       <span>NEXTGEN IT SOLUTION</span>
-                      <ShieldCheck className="w-4 h-4 text-teal-400" />
+                      <ShieldCheck className="w-4 h-4 text-teal-600" />
                     </div>
-                    <div className="text-xs text-slate-400 font-mono flex items-center justify-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                    <div className="text-xs text-slate-500 font-medium flex items-center justify-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
                       <span>Live Circuit Active • Industrial SLA Ready</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Floating Highlights Badges */}
-                <div className="relative z-10 grid grid-cols-2 gap-2.5 pt-4 border-t border-slate-800/80 text-xs">
-                  <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-md bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                <div className="relative z-10 grid grid-cols-2 gap-2.5 pt-4 border-t border-slate-200 text-xs">
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 text-sm">
                       ⚡
                     </div>
                     <div>
-                      <div className="font-bold text-white text-[11px]">2-4h SLA</div>
-                      <div className="text-[10px] text-slate-400">Vapi & Silvassa</div>
+                      <div className="font-bold text-slate-900 text-[11px]">2-4h SLA</div>
+                      <div className="text-[10px] text-slate-500">Vapi & Silvassa</div>
                     </div>
                   </div>
 
-                  <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-md bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center shrink-0 text-sm">
                       🛡️
                     </div>
                     <div>
-                      <div className="font-bold text-white text-[11px]">100% OEM</div>
-                      <div className="text-[10px] text-slate-400">Warranty Backed</div>
+                      <div className="font-bold text-slate-900 text-[11px]">100% OEM</div>
+                      <div className="text-[10px] text-slate-500">Warranty Backed</div>
                     </div>
                   </div>
                 </div>
@@ -191,7 +195,7 @@ export default function HomePage() {
                 <div className="relative z-10 mt-4">
                   <Link
                     href="/quote"
-                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600/90 to-teal-600/90 hover:from-blue-600 hover:to-teal-600 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-md transition"
+                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-blue-600/20 transition"
                   >
                     <span>Request Turnkey Project Proposal</span>
                     <ArrowRight className="w-3.5 h-3.5" />

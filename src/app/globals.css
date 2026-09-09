@@ -204,3 +204,17 @@ body {
   animation: nodeGlow 2.5s ease-in-out infinite;
   transform-origin: center;
 }
+
+@keyframes spinVerySlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-veryslow {
+  animation: spinVerySlow 26s linear infinite;
+  transform-origin: center;
+}
