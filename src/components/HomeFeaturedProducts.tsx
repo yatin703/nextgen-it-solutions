@@ -7,20 +7,23 @@ import {
   Sparkles, 
   CheckCircle2, 
   Clock, 
-  ChevronLeft,
-  ChevronRight,
-  Pause,
-  Play
+  ChevronLeft, 
+  ChevronRight, 
+  Pause, 
+  Play,
+  Maximize2
 } from 'lucide-react';
 import { ProductItem } from '@/lib/types';
 import { INITIAL_PRODUCTS } from '@/lib/data';
 import ProductCard from './ProductCard';
 import Product3DVisual from './Product3DVisual';
+import ProductViewerModal from './3d/ProductViewerModal';
 
 export default function HomeFeaturedProducts() {
   const [products, setProducts] = useState<ProductItem[]>(INITIAL_PRODUCTS);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [modalProduct, setModalProduct] = useState<ProductItem | null>(null);
 
   useEffect(() => {
     fetch('/api/products')
@@ -121,9 +124,19 @@ export default function HomeFeaturedProducts() {
                 <div className="w-full max-w-lg transition-all duration-300">
                   <Product3DVisual product={activeProduct} size="lg" interactive={true} />
                 </div>
-                <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-cyan-300/80">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-                  <span>Move mouse over card to rotate & inspect in 3D space</span>
+                <div className="mt-3 flex items-center justify-between w-full max-w-lg px-1">
+                  <div className="flex items-center gap-2 text-[11px] font-mono text-cyan-300/80">
+                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+                    <span>Tilt to inspect</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setModalProduct(activeProduct)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/50 text-cyan-300 text-xs font-semibold transition cursor-pointer shadow-[0_0_12px_rgba(6,182,212,0.25)]"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                    <span>3D Port Inspector</span>
+                  </button>
                 </div>
               </div>
 
@@ -255,6 +268,13 @@ export default function HomeFeaturedProducts() {
           <ProductCard key={prod.id} product={prod} />
         ))}
       </div>
+
+      {/* 3D Hardware Inspection Modal */}
+      <ProductViewerModal
+        product={modalProduct}
+        isOpen={!!modalProduct}
+        onClose={() => setModalProduct(null)}
+      />
     </div>
   );
 }

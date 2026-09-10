@@ -26,6 +26,9 @@ import HorizontalCircuitWatermark from '@/components/HorizontalCircuitWatermark'
 import { INITIAL_SERVICES, INITIAL_PRODUCTS } from '@/lib/data';
 import { LOCATIONS_DATA } from '@/lib/locations';
 import { FaqSchema } from '@/components/JsonLd';
+import Hero3DIndustrialCity from '@/components/3d/Hero3DIndustrialCity';
+import ServiceFloorplan3D from '@/components/3d/ServiceFloorplan3D';
+import ProjectRoadmap3D from '@/components/3d/ProjectRoadmap3D';
 
 const HOME_FAQS = [
   {
@@ -54,117 +57,8 @@ export default function HomePage() {
     <div className="space-y-24 pb-16">
       <FaqSchema faqs={HOME_FAQS} />
       
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-3 pb-12 lg:pt-5 lg:pb-20 overflow-hidden bg-gradient-to-b from-slate-100 via-blue-50/50 to-slate-50 border-b border-slate-200">
-        {/* Ambient background glows & grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a08_1px,transparent_1px),linear-gradient(to_bottom,#0f172a08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
-        <div className="absolute top-4 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        {/* Dynamic Horizontal & Vertical Industrial Circuit Watermark Behind All Font */}
-        <HorizontalCircuitWatermark 
-          circuitOpacity="opacity-25 sm:opacity-30 lg:opacity-35" 
-          logoOpacity="opacity-90 sm:opacity-95 lg:opacity-100" 
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl space-y-4 sm:space-y-6">
-            
-            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-teal-50 via-blue-50 to-indigo-50 border border-teal-200/80 text-teal-800 text-[11px] sm:text-xs font-bold tracking-wide uppercase shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-teal-600 shrink-0" />
-              <span>South Gujarat & Union Territory Industrial IT Specialists</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-4xl lg:text-[3.25rem] font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-[1.12]">
-              Industrial <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-teal-700">IT Infrastructure & Security</span> Solutions in Vapi, Silvassa & Daman
-            </h1>
-
-            {/* MOBILE-ONLY 3D MACHINE EMBLEM DISPLAY (Zero Text Collision, Centered & Clean) */}
-            <div className="lg:hidden flex justify-center items-center py-2 sm:py-4">
-              <div className="relative flex items-center justify-center">
-                {/* Soft ambient backglow */}
-                <div className="absolute w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-gradient-to-tr from-cyan-500/20 via-blue-500/15 to-teal-500/10 blur-2xl pointer-events-none" />
-                
-                {/* Orbital dashed ring */}
-                <div className="absolute -inset-2.5 sm:-inset-3 rounded-full border border-cyan-400/40 pointer-events-none animate-spin-veryslow" style={{ borderStyle: 'dashed', borderWidth: '1.5px' }} />
-
-                {/* 3D Machine Logo Core */}
-                <div className="relative w-36 h-36 sm:w-48 sm:h-48 rounded-full p-2 bg-gradient-to-tr from-white via-blue-50/90 to-cyan-50 border-2 border-cyan-400/50 shadow-[0_12px_35px_rgba(37,99,235,0.18),0_0_20px_rgba(6,182,212,0.25)] flex items-center justify-center overflow-hidden animate-machine-core-pulse">
-                  <img 
-                    src="/images/nextgen-logo-it-solution-3d.jpg" 
-                    alt="NextGen IT Solution 3D Emblem" 
-                    className="w-full h-full object-cover rounded-full scale-105 filter drop-shadow-[0_4px_14px_rgba(37,99,235,0.18)]"
-                  />
-                  <div className="absolute inset-0 rounded-full ring-1 ring-white/60 pointer-events-none" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/35 to-transparent rounded-full pointer-events-none animate-specular-scan" />
-                </div>
-              </div>
-            </div>
-
-            {/* Service tags pill bar */}
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold text-slate-700">
-              {['Industrial LAN Cabling', 'AI CCTV Surveillance', 'Servers & Storage', 'NextGen Firewalls', 'Wireless APs', 'IT AMC Support'].map((tag) => (
-                <span key={tag} className="px-2.5 py-1 rounded-lg bg-white/90 border border-slate-200 shadow-2xs text-slate-700 font-medium">
-                  ✓ {tag}
-                </span>
-              ))}
-            </div>
-
-            <p className="text-xs sm:text-base text-slate-600 leading-relaxed max-w-2xl">
-              NextGen IT Solution powers manufacturing plants, corporate offices, and institutions across <strong>Vapi GIDC, Silvassa, Daman, and South Gujarat</strong> with mission-critical cabling, enterprise surveillance, robust servers, and SLA-backed maintenance support.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5">
-              <Link 
-                href="/quote"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 text-white font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow-lg shadow-blue-600/25 transition transform hover:-translate-y-0.5 text-xs sm:text-sm uppercase tracking-wider text-center"
-              >
-                <span>Get a Free Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a 
-                href="tel:+919978598817"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 border border-slate-300/80 text-slate-800 font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl shadow-sm transition text-xs sm:text-sm hover:border-slate-400 text-center"
-              >
-                <PhoneCall className="w-4 h-4 text-teal-600" />
-                <span>Call IT Specialist</span>
-              </a>
-              <a 
-                href="https://wa.me/919978598817?text=Hello%20NextGen%20IT%20Solution,%20I%20would%20like%20to%20inquire%20about%20your%20IT%20services."
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300/80 text-emerald-800 font-bold px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl shadow-2xs transition text-xs sm:text-sm text-center"
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                <span>WhatsApp</span>
-              </a>
-            </div>
-
-            {/* Grounded credibility stats */}
-            <div className="pt-6 border-t border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
-              <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-slate-900">50+</div>
-                <div className="text-[11px] text-slate-500 font-medium">Industrial Projects</div>
-              </div>
-              <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-teal-700">6-8 Hrs</div>
-                <div className="text-[11px] text-slate-500 font-medium">Onsite Support SLA</div>
-              </div>
-              <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-blue-700">100%</div>
-                <div className="text-[11px] text-slate-500 font-medium">Audit Compliant</div>
-              </div>
-              <div className="p-3 bg-white/70 rounded-xl border border-slate-200/70 shadow-2xs">
-                <div className="text-2xl font-extrabold text-teal-700">5+ Years</div>
-                <div className="text-[11px] text-slate-500 font-medium">Field Experience</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      {/* 1. 3D INDUSTRIAL NETWORK CITY HERO SECTION */}
+      <Hero3DIndustrialCity />
 
       {/* 2. REGIONAL VALUE PROPOSITION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -188,7 +82,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. CORE SERVICES GRID (15 Services Overview) */}
+      {/* 3. INTERACTIVE 3D SERVICE FLOORPLAN MAP */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ServiceFloorplan3D />
+      </section>
+
+      {/* 3B. CORE SERVICES GRID (15 Services Overview) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
           <div>
@@ -352,53 +251,9 @@ export default function HomePage() {
         <HomeFeaturedProducts />
       </section>
 
-      {/* 8. 4-STEP PROJECT PROCESS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-bold tracking-widest text-blue-600 uppercase">Structured Methodology</span>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
-            Our 4-Step Project Execution Roadmap
-          </h2>
-          <p className="text-sm text-slate-600">
-            A systematic engineering process ensuring projects are delivered on time, within budget, and compliant with international industry standards.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <div className="bg-white border border-slate-200 rounded-xl p-6 relative shadow-sm hover:shadow-md transition">
-            <div className="text-4xl font-extrabold text-slate-200 mb-3 font-mono">01</div>
-            <h3 className="text-base font-bold text-slate-900 mb-2">Physical Site Survey</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Our certified network engineers inspect your premises, cable pathways, electrical earthing, and architectural blind spots.
-            </p>
-          </div>
-
-          <div className="bg-white border border-slate-200 rounded-xl p-6 relative shadow-sm hover:shadow-md transition">
-            <div className="text-4xl font-extrabold text-slate-200 mb-3 font-mono">02</div>
-            <h3 className="text-base font-bold text-slate-900 mb-2">BOQ & Architecture Design</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              We prepare a transparent Bill of Quantities (BOQ) with precise brand specifications, network diagrams, and quotation options.
-            </p>
-          </div>
-
-          <div className="bg-white border border-slate-200 rounded-xl p-6 relative shadow-sm hover:shadow-md transition">
-            <div className="text-4xl font-extrabold text-slate-200 mb-3 font-mono">03</div>
-            <h3 className="text-base font-bold text-slate-900 mb-2">Certified Deployment</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Structured cable conduit routing, precision optical splicing, rack dressing, camera aiming, and firewall policy configuration.
-            </p>
-          </div>
-
-          <div className="bg-white border border-slate-200 rounded-xl p-6 relative shadow-sm hover:shadow-md transition">
-            <div className="text-4xl font-extrabold text-slate-200 mb-3 font-mono">04</div>
-            <h3 className="text-base font-bold text-slate-900 mb-2">Fluke Audit & AMC Handover</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Cable testing reports provided for documentation. Seamless transition to our SLA-backed Annual Maintenance Support.
-            </p>
-          </div>
-
-        </div>
+      {/* 8. 4-STEP PROJECT EXECUTION ROADMAP (3D PROGRESSIVE STAGES) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ProjectRoadmap3D />
       </section>
 
       {/* 9. INDUSTRIES WE SERVE */}
